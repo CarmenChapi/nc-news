@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+
+.title-article-card{
+  padding: 2rem;
+
+}
+
+.photo-article-card{
+  width: 200px;
+}
+
+.footer-article-card{
+  margin-top: 1px;
+}
+
+.listArticles-card{
+  display: flex;
+flex-wrap: wrap;
+}
