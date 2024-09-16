@@ -42,19 +42,34 @@
 }
 
 .title-article-card{
-  padding: 2rem;
+  margin-top: 1em;
+  font-weight: bold;
+  margin-left: 1em;
+  width: 230px;
 
 }
 
 .photo-article-card{
   width: 200px;
+  text-align: center;
 }
 
 .footer-article-card{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
   margin-top: 1px;
 }
 
 .listArticles-card{
   display: flex;
 flex-wrap: wrap;
+list-style: none;
+text-align: center;
+}
+
+.app{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: min-content auto auto;
 }
