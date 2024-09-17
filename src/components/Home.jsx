@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import getAllArticles from "../utils/articles";
 import ArticleCard from "./ArticleCard";
 
-const Body = () => {
+
+const Home = () => {
     const [listArticles, setListArticles] = useState([])
     const [artIdSelected, setArtIdSelected] = useState("")
     const [isLoading, setIsLoading] = useState(true)
@@ -23,10 +24,6 @@ const Body = () => {
     <ul className="listArticles-card">
         {listArticles.map(article => {
            return <ArticleCard article={article} artIdSelected={artIdSelected} setArtIdSelected={setArtIdSelected}/>
-        
-    
-                  
-        
             })}
     </ul>
     </div>
@@ -34,4 +31,4 @@ const Body = () => {
 
 
 
-export default Body;
+export default Home;

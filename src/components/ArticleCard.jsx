@@ -1,12 +1,15 @@
 
 
+import { useNavigate } from "react-router-dom";
 
 const ArticleCard = ({article, artIdSelected, setArtIdSelected}) => {
+    const navigate = useNavigate();
     function handleOnClick(){
         setArtIdSelected(article.article_id)
-        console.log(artIdSelected)
+        console.log(`/articles/article_id=${artIdSelected}`)
+        navigate(`/articles/${artIdSelected}`);
     }
-    console.log(article)
+   
     return <li key={article.id}>
         <p className="title-article-card" onClick={handleOnClick}>{article.title}</p>
         <img onClick={handleOnClick} className="photo-article-card" src={article.article_img_url} />
@@ -16,4 +19,3 @@ const ArticleCard = ({article, artIdSelected, setArtIdSelected}) => {
 
 
 export default ArticleCard;
-// <p>{article.created_at.split('T')[0]}</p>

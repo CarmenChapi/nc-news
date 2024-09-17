@@ -1,17 +1,27 @@
-import { useState } from 'react'
+
 import Header from './components/Header'
-import Body from './components/Body'
+import Home from './components/Home'
+import Footer from './components/Footer';
+import Article from './components/Article';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
+    <BrowserRouter>
     <div className='app'>
      <Header/>
-     <Body/>
+     <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/articles/" element={<Home />} />
+        <Route path="/articles/:article_id" element={<Article />} />
+      </Routes> 
+
      </div>
+     </BrowserRouter>
+     <Footer/>
     </>
   )
 }
