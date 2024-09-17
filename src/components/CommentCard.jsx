@@ -1,16 +1,28 @@
 import {useState} from "react"
+import {patchCommentVotes} from "../utils/api"
 
 const CommentCard = ({comment}) => {
     const [votes,setVotes]= useState(comment.votes)
-    function handleVotes(){
-        setVotes(votes + 1)
+    const [isVoted, setIsVoted] = useState(false)
+     function handleVotes(){
+        if(!isVoted){
+            setVotes(votes + 1)
+            patchCommentVotes(comment.comment_id, 1)
+        }
+        else
+        {
+            setVotes(votes - 1)
+            patchCommentVotes(comment.comment_id, -1)
+         
+        }
+        setIsVoted(!isVoted)
     }
    // console.log(comment)
-    return <li key={comment.id}>
+    return <li key={comment.id} className="comment-card">
         <div>
-    <p>{comment.body}</p>
-    <p>By {comment.author}</p>
-    <button onClick={handleVotes}>Votes:{votes}</button>
+    <p className="comment-card">{comment.body}</p>
+    <p className="comment-card">By {comment.author}</p>
+    <p className="comment-card">Likes:{votes}</p><button className="like-comment" onClick={handleVotes} aria-label="Like it">♥</button>
     </div>
     </li>
 }

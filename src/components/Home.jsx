@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import getAllArticles from "../utils/articles";
+import { getArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 
 
@@ -8,11 +8,14 @@ const Home = () => {
     const [artIdSelected, setArtIdSelected] = useState("")
     const [isLoading, setIsLoading] = useState(true)
     useEffect(()=>{
-        getAllArticles().then((articles) => {
+      getArticles().then((articles) => {
            // console.log(articles)
             setListArticles(articles);
             setIsLoading(false)
-          });
+          })
+          .catch(err => {
+            console.log('error getting articles main--->',err)
+          })
     }, [])
 
     if (isLoading) {
