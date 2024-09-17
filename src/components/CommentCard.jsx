@@ -22,7 +22,10 @@ const CommentCard = ({comment}) => {
         <div>
     <p className="comment-card">{comment.body}</p>
     <p className="comment-card">By {comment.author}</p>
-    <p className="comment-card">Likes:{votes}</p><button className="like-comment" onClick={handleVotes} aria-label="Like it">♥</button>
+    {votes !== 0 ? votes===1 ? <p className="comment-card">{votes} Like</p> 
+    :  <p className="comment-card">{votes} Likes</p> 
+    : <></>}
+    <button className="like-comment" onClick={handleVotes} aria-label="Like it">♥</button>
     </div>
     </li>
 }

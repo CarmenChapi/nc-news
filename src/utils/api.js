@@ -23,8 +23,16 @@ export const getCommentsById = (id) => {
 export const patchCommentVotes = (id, incVts) => {
     const bodyComment = {inc_votes: incVts}
     return ncNews.patch(`/comments/${id}/`, bodyComment).then(({data}) =>{
-        console.log("patch succesfull???")
         return data.comments
     })
+    
+} 
+
+export const postComment = (id, body, username) => {
+    const bodyComment = {body : body,
+                         username : username }
+        return ncNews.post(`/api/articles/${id}/comments`, bodyComment).then(({data}) =>{
+                            return data.comments
+                        })
 }
 
