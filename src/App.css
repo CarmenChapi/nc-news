@@ -100,4 +100,39 @@ text-align: left;
 
 .comment-card{
   text-align: left;
+  list-style: none;
 }
+
+.title-comments{
+  text-align: left;
+}
+
+.footer-comment{
+  padding: 1em;
+  margin-left: 3em;
+}
+
+.like-comment{
+  display: inline-block;
+}
+
+.like-comment:hover{
+  background-color: grey;
+}
+.like-comment:active{
+ background-color: rgba(255, 0, 0, 0.658);
+}
+
+.input-comment{
+  text-align: left;
+}
+
+
+.article-photo{
+  text-align: left;
+}
+
+.hide {
+  display: none;
+}
+    
