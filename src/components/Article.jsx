@@ -1,16 +1,37 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 import CommentCard from "./CommentCard";
-import { getArticleById, getCommentsById } from "../utils/api";
+import { getArticleById, getCommentsById, postComment} from "../utils/api";
 import CommentForm from "./CommentForm";
 
 const Article = () => {
+    const username = 'grumpy19';
     const [isLoading, setIsLoading] = useState(true)
+    const [isPostingComment, setIsPostingComment] = useState(false)
     const [articleData, setArticleData] = useState({})
     const [listComments, setListComments] = useState([])
     const [newCommentValue, setNewCommentValue] = useState("")
     const { article_id } = useParams()
-    console.log(article_id)
+
+    function handleInputOnChange(e){
+       
+        setNewCommentValue(e.target.value)
+    }
+  
+    function handleSubmit(e){
+        e.preventDefault()
+        setIsPostingComment(true)
+        console.log(article_id, newCommentValue, username)
+        console.log("submit")
+        postComment(article_id, newCommentValue, username).then((comment) => {
+           // listComments.push(comment)
+            setListComments([comment, ...listComments])
+            setNewCommentValue("")
+            setIsPostingComment(false)
+        })
+        .catch(err => console.log("Error posting comment--->", err))
+     
+    }
 
     useEffect(() => {
 
@@ -39,7 +60,9 @@ const Article = () => {
         <p className="article-class" >{articleData.created_at.split('T')[0]}</p>
         <p className="article-class" >{articleData.topic}- {articleData.body}</p>
 
-        <CommentForm />
+        <input value={newCommentValue} onChange={(e)=>handleInputOnChange(e)} placeholder="Leave a comment" className="article-class input-comment"/><button onClick={handleSubmit}>Submit</button>
+
+        {isPostingComment ? <p>...Posting comment</p> : <></>}
         <h3 className="article-class">Comments</h3>
         <ul>
             {listComments.map(comment => {

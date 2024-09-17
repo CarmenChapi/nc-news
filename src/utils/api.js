@@ -21,10 +21,27 @@ export const getCommentsById = (id) => {
 } 
 
 export const patchCommentVotes = (id, incVts) => {
-    const bodyComment = {inc_votes: incVts}
+    const bodyComment = {"inc_votes" : incVts}
     return ncNews.patch(`/comments/${id}/`, bodyComment).then(({data}) =>{
-        console.log("patch succesfull???")
         return data.comments
     })
+    
+} 
+
+export const postComment = (id, body2, username2) => {
+    const bodyComment = { username : username2 ,
+                          body : body2
+                      }
+                      console.log(bodyComment, id)
+        return ncNews.post(`/articles/${id}/comments`, bodyComment).then(({data}) =>{
+                     console.log(data.comment)
+                    return data.comment
+        })
+}
+
+export const deleteComment = (id) => {
+        return ncNews.delete(`comments/${id}`).then(() =>{
+           return "201"
+        })
 }
 
