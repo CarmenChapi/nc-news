@@ -40,3 +40,64 @@
 .read-the-docs {
   color: #888;
 }
+
+.title-article-card{
+  margin-top: 1em;
+  font-weight: bold;
+  margin-left: 1em;
+  width: 230px;
+
+}
+.title-article-card:hover {
+ background-color: grey;
+}
+.button-article-card:hover{
+  background-color: grey;
+}
+.photo-article-card:hover{
+  background-color: grey;
+}
+
+.photo-article-card{
+  width: 200px;
+  text-align: center;
+}
+
+.footer-article-card{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+
+}
+
+.listArticles-card{
+  display: flex;
+flex-wrap: wrap;
+list-style: none;
+text-align: center;
+padding: auto;
+}
+
+.app{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: min-content auto auto;
+}
+
+.head{
+  margin-top: 0;
+padding: 1em;
+text-align: left;
+}
+
+.head:hover{
+  background-color: grey;
+}
+
+.article-class{
+  text-align: left;
+}
+
+.comment-card{
+  text-align: left;
+}
