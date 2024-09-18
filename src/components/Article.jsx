@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 import CommentCard from "./CommentCard";
 import { getArticleById, getCommentsById, postComment} from "../utils/api";
-import CommentForm from "./CommentForm";
+
 
 const Article = () => {
     const username = 'grumpy19';
@@ -24,7 +24,6 @@ const Article = () => {
         console.log(article_id, newCommentValue, username)
         console.log("submit")
         postComment(article_id, newCommentValue, username).then((comment) => {
-           // listComments.push(comment)
             setListComments([comment, ...listComments])
             setNewCommentValue("")
             setIsPostingComment(false)
