@@ -41,7 +41,14 @@ export const postComment = (id, body2, username2) => {
 
 export const deleteComment = (id) => {
         return ncNews.delete(`comments/${id}`).then(() =>{
+            console.log("201 delete "+id)
            return "201"
         })
 }
 
+export const getAllUser = () => {
+    return ncNews.get(`/users`).then(({data}) =>{
+        console.log(data.users)
+       return data.users
+    })
+}

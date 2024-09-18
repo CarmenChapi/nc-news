@@ -5,10 +5,13 @@ const CommentCard = ({comment}) => {
     const [votes,setVotes]= useState(comment.votes)
     const [isVoted, setIsVoted] = useState(false)
     const [isDeleted, setIsDeleted] = useState(false)
+    const [isDeleting, setIsDeleting] = useState(false)
+
     function handleDelete(){
-        console.log("deleteeeeeeeeeeee")
+        setIsDeleting(true)
         deleteComment(comment.comment_id)
         setIsDeleted(true)
+        setIsDeleting(false)
     }
      function handleVotes(){
         if(!isVoted){
@@ -22,6 +25,9 @@ const CommentCard = ({comment}) => {
          
         }
         setIsVoted(!isVoted)
+    }
+    if(isDeleting){
+        return <p>...Deleting comment</p>
     }
     if(isDeleted){
         return <></>

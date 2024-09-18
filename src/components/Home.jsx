@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { getArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 
-
 const Home = () => {
     const [listArticles, setListArticles] = useState([])
     const [artIdSelected, setArtIdSelected] = useState("")
     const [isLoading, setIsLoading] = useState(true)
+
     useEffect(()=>{
       getArticles().then((articles) => {
            // console.log(articles)
