@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
+import MiniUser from "./MiniUser";
 
 const Home = () => {
     const [listArticles, setListArticles] = useState([])
@@ -23,7 +24,8 @@ const Home = () => {
       }
     
 
-    return <div><h1>List of Articles</h1>
+    return <div>   <MiniUser/>
+      <h1>List of Articles</h1>
     <ul className="listArticles-card">
         {listArticles.map(article => {
            return <ArticleCard article={article} artIdSelected={artIdSelected} setArtIdSelected={setArtIdSelected}/>

@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import CommentCard from "./CommentCard";
 import { getArticleById, getCommentsById, postComment} from "../utils/api";
 
+import MiniUser from "./MiniUser";
+
 
 const Article = () => {
     const username = 'grumpy19';
@@ -21,8 +23,7 @@ const Article = () => {
     function handleSubmit(e){
         e.preventDefault()
         setIsPostingComment(true)
-        console.log(article_id, newCommentValue, username)
-        console.log("submit")
+  
         postComment(article_id, newCommentValue, username).then((comment) => {
             setListComments([comment, ...listComments])
             setNewCommentValue("")
@@ -53,6 +54,7 @@ const Article = () => {
         return <p>...Loading</p>
     }
     return <div>
+          <MiniUser/>
         <h1 className="article-class">{articleData.title}</h1>
         <img src={articleData.article_img_url} tab={articleData.title} className="article-photo" />
         <p className="article-class" >By {articleData.author}</p>
