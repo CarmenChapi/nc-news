@@ -2,8 +2,16 @@ import axios from "axios";
 
 const ncNews = axios.create({baseURL: `https://newscarmen.onrender.com/api`})
 
-export const getArticles = () => {
+export const getArticles = (topicByQuery) => {
+    if(topicByQuery){
+        return ncNews.get(`/articles?topic=${topicByQuery}`).then(({data}) =>{
+            console.log(data.articles)
+            return data.articles;
+        })
+
+    }
     return ncNews.get("/articles").then(({data}) =>{
+        console.log(data.articles)
         return data.articles;
     })
 }
@@ -50,5 +58,12 @@ export const getAllUser = () => {
     return ncNews.get(`/users`).then(({data}) =>{
         console.log(data.users)
        return data.users
+    })
+}
+
+export const getAllTopics = () => {
+    return ncNews.get(`/topics`).then(({data}) =>{
+        console.log(data.topics)
+       return data.topics
     })
 }
