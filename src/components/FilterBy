@@ -1,6 +1,0 @@
-//const sortedByOptions = [votes : "Likes", created_at:"Date", comment_count, topic]
-
-const FilterBy = () =>{
-}
-
-export default FilterBy;

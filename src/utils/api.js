@@ -2,15 +2,25 @@ import axios from "axios";
 
 const ncNews = axios.create({baseURL: `https://newscarmen.onrender.com/api`})
 
-export const getArticles = (topicByQuery) => {
-    if(topicByQuery){
-        return ncNews.get(`/articles?topic=${topicByQuery}`).then(({data}) =>{
-            console.log(data.articles)
-            return data.articles;
-        })
-
+export const getArticles = (topicQuery, orderByQuery, dirOrderQuery) => {
+    let queryFinal = `/articles`
+    let isQuery = false;
+    if(topicQuery){
+        queryFinal += isQuery ? '&' : '?'
+        queryFinal += `topic=${topicQuery}`
+        isQuery = true
     }
-    return ncNews.get("/articles").then(({data}) =>{
+    if(orderByQuery){
+        queryFinal += isQuery ? '&' : '?'
+        queryFinal += `sort_by=${orderByQuery}`
+        isQuery = true
+    }
+    if(dirOrderQuery){
+        queryFinal += isQuery ? '&' : '?'
+        queryFinal += `order=${orderdirOrderQueryByQuery}`
+    }
+    console.log('Api getArticles:', queryFinal)
+    return ncNews.get(queryFinal).then(({data}) =>{
         console.log(data.articles)
         return data.articles;
     })

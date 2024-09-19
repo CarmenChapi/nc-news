@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getAllTopics } from "../utils/api";
 import { Link } from "react-router-dom";
-import FilterBy from "./FilterBy";
+import SortBy from "./SortBy.jsx";
 
-const TopicsNavBar = () => {
+const TopicsNavBar = ({topicByQuery}) => {
     const [listTopics, setListTopics] = useState([])
     useEffect(() => {
         getAllTopics().then(topics => {
@@ -15,6 +15,7 @@ const TopicsNavBar = () => {
     },[])
     
     return <div className="topic-nav-bar">
+        <SortBy topicByQuery={topicByQuery}/>
         {
             listTopics.map((topic, index) => {
               
