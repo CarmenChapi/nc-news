@@ -4,6 +4,9 @@ import CommentCard from "./CommentCard";
 import { getArticleById, getCommentsById, postComment} from "../utils/api";
 
 
+import MiniUser from "./MiniUser";
+
+
 const Article = () => {
     const username = 'grumpy19';
     const [isLoading, setIsLoading] = useState(true)
@@ -21,8 +24,7 @@ const Article = () => {
     function handleSubmit(e){
         e.preventDefault()
         setIsPostingComment(true)
-        console.log(article_id, newCommentValue, username)
-        console.log("submit")
+  
         postComment(article_id, newCommentValue, username).then((comment) => {
             setListComments([comment, ...listComments])
             setNewCommentValue("")
@@ -41,11 +43,11 @@ const Article = () => {
                     setListComments(comments);
                     setIsLoading(false)
                 }).catch((err) => {
-                    console.log(err, "<-----error getting comments")
+                    console.log("Error gettin article:", article_id,err)
                 })
             })
                 .catch((error) => {
-                    console.log(error, '<---error getting articleById')
+                    console.log("Error getting comments",article_id,error)
                 })
         }
     }, [])
@@ -53,8 +55,9 @@ const Article = () => {
         return <p>...Loading</p>
     }
     return <div>
+          <MiniUser/>
         <h1 className="article-class">{articleData.title}</h1>
-        <img src={articleData.article_img_url} tab={articleData.title} className="article-photo" />
+        <img src={articleData.article_img_url} tab={articleData.title} className="logo" />
         <p className="article-class" >By {articleData.author}</p>
         <p className="article-class" >{articleData.created_at.split('T')[0]}</p>
         <p className="article-class" >{articleData.topic}- {articleData.body}</p>
@@ -63,7 +66,7 @@ const Article = () => {
 
         {isPostingComment ? <p>...Posting comment</p> : <></>}
         <h3 className="article-class">Comments</h3>
-        <ul>
+        <ul key="list-articles">
             {listComments.map(comment => {
                 return <CommentCard comment={comment} />
             })}
