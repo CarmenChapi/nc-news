@@ -4,6 +4,7 @@ import ArticleCard from "./ArticleCard";
 import MiniUser from "./MiniUser";
 import TopicsNavBar from "./TopicsNavBar"
 import { useSearchParams } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
 
 
 const Home = () => {
@@ -13,24 +14,32 @@ const Home = () => {
     const [searchParams, setSearchParams] = useSearchParams();
 
     const topicByQuery = searchParams.get("topic")
-    const orderByQuery = searchParams.get("order_by");
+    const sortByQuery = searchParams.get("sort_by");
+    const orderByQuery = searchParams.get("order");
+    const [error, setError] = useState(null)
 
-    console.log(topicByQuery, orderByQuery)
+    console.log(topicByQuery, sortByQuery,orderByQuery)
 
     useEffect(()=>{
-      getArticles(topicByQuery, orderByQuery).then((articles) => {
-            setListArticles(articles);
-            setIsLoading(false)
+   
+      getArticles(topicByQuery,sortByQuery, orderByQuery).then((articles) => {
+          setListArticles(articles)
+          setIsLoading(false)
           })
           .catch(err => {
             console.log('Error getting articles main--->',err)
+            setError(err)
+            setIsLoading(false)
           })
-    },[topicByQuery])
+    },[topicByQuery, sortByQuery])
 
     if (isLoading) {
         return <p>...Loading</p>
       }
     return <div>
+      {(error && topicByQuery) && <ErrorPage errorMsg={`Wrong value for topic=${topicByQuery}`}/> }
+      {error && <ErrorPage errorMsg={error.message}/>}
+    {!error && <div>
     <MiniUser/> 
     <TopicsNavBar topicByQuery={topicByQuery}/> 
     {topicByQuery ? <h1>{`List of ${topicByQuery} Articles`}</h1> : <h1>List of Articles</h1> } 
@@ -38,7 +47,8 @@ const Home = () => {
         {listArticles.map(article => {
            return <ArticleCard article={article} artIdSelected={artIdSelected} setArtIdSelected={setArtIdSelected}/>
             })}
-    </ul>
+    </ul> 
+    </div>}
     </div>
 }
 

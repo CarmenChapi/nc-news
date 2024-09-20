@@ -9,8 +9,6 @@ const SortBy = ({topicByQuery}) => {
   const [sortedBy, setSortedBy] = useState("")
   const [isDesc, setIsDesc] = useState(true)//Defaul OrdersBy created_at DESC when empty
   const location = useLocation();
-  console.log(location.pathname);
-  console.log(topicByQuery, '----> topic in SortBy')
 
   let queryFinal =  location.pathname === '/articles' ?  "?" : '/articles?'
   if(topicByQuery){
@@ -18,9 +16,7 @@ const SortBy = ({topicByQuery}) => {
   }
   function handleInputOnChange(e) {
     e.preventDefault()
-    setSortedBy(e.target.value);
-    console.log(sortedBy)
-    
+    setSortedBy(e.target.value);    
   }
   function handleAsc(event){
     event.preventDefault()
@@ -34,7 +30,7 @@ const SortBy = ({topicByQuery}) => {
   function handleClick(event){
     event.preventDefault()
     if(sortedBy){
-      queryFinal += `sorted_by=${sortedBy}`
+      queryFinal += `sort_by=${sortedBy}`
     }
     if(!isDesc){
         queryFinal += sortedBy ? '&order=asc' : '?order=asc'
@@ -48,7 +44,6 @@ const SortBy = ({topicByQuery}) => {
     <label className="sorted-by">Order Articles by:</label>
     <select name="sorted_by" id="sorted_by" value={sortedBy} onChange={(e)=>handleInputOnChange(e)}>
       {sortedByOptions.map((option, index) => {
-       // console.log(option, index, sortedByNames[index])
         return (
           <option value={option} key={index}>
             {sortedByNames[index]}

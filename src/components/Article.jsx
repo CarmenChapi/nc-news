@@ -15,6 +15,7 @@ const Article = () => {
     const [newCommentValue, setNewCommentValue] = useState("")
     const { article_id } = useParams()
     const [error, setError] = useState(null)
+    const [isEmptyError, setIsEmptyError] = useState(null)
 
     function handleInputOnChange(e){
        setNewCommentValue(e.target.value)
@@ -22,8 +23,10 @@ const Article = () => {
   
     function handleSubmit(e){
         e.preventDefault()
+    
+        if(newCommentValue){
+        setIsEmptyError(false)
         setIsPostingComment(true)
-  
         postComment(article_id, newCommentValue, username).then((comment) => {
             setListComments([comment, ...listComments])
             setNewCommentValue("")
@@ -32,10 +35,13 @@ const Article = () => {
         .catch((err) => {
         setError(err)
         console.log("Error posting comment--->", err)})
+        }else{
+            setIsEmptyError(true)
+        }
      
     }
 
-    useEffect(() => {
+    useEffect(() => { 
 
         if (article_id) {
             getArticleById(article_id).then((article) => {
@@ -61,14 +67,13 @@ const Article = () => {
     }
     return <div>
      { error && <ErrorPage errorMsg={error.message} /> }
-     { !error &&
-     (<div> <MiniUser/> 
+     { !error && <div> <MiniUser/> 
         <h1 className="article-class">{articleData.title}</h1>
         <img src={articleData.article_img_url} tab={articleData.title} className="logo" />
         <p className="article-class" >By {articleData.author}</p>
         <p className="article-class" >{articleData.created_at.split('T')[0]}</p>
         <p className="article-class" >{articleData.topic}- {articleData.body}</p>
-
+        {isEmptyError ? <p>Must write text to submit</p> : <></>}
         <input value={newCommentValue} onChange={(e)=>handleInputOnChange(e)} placeholder="Leave a comment" className="article-class input-comment"/><button onClick={handleSubmit}>Submit</button>
 
         { isPostingComment ? <p>...Posting comment</p> : <></>}
@@ -78,7 +83,7 @@ const Article = () => {
                 return <CommentCard comment={comment} />
             })}
         </ul>
-        </div> )
+        </div>
      }
       </div>
 }

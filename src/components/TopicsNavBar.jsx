@@ -13,7 +13,7 @@ const TopicsNavBar = ({topicByQuery}) => {
             console.log("Error getting topics--->", err)
         })
     },[])
-    
+   
     return <div className="topic-nav-bar">
         <SortBy topicByQuery={topicByQuery}/>
         {
