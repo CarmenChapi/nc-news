@@ -15,8 +15,9 @@ const MiniUser = () => {
   }
 
     return (
-      <div>
-        <p>{user.username}</p>
+      <div className="mini-user">
+        <img className="logo" src={user.avatar_url}/>
+        <p className="user-name">{user.username}</p>
         <Link to="/users">
           {isLogIn ? <button onClick={handleLogOut}>Log out</button> : <></>}
         </Link>

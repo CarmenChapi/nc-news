@@ -1,5 +1,4 @@
 
-import {Link} from 'react-router-dom'
 import { UserContext } from '../context/UserContext';
 import { getAllUser } from '../utils/api';
 import { useContext, useEffect, useState } from 'react';
