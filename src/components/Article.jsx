@@ -2,8 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 import CommentCard from "./CommentCard";
 import { getArticleById, getCommentsById, postComment} from "../utils/api";
-
-
+import ErrorPage from "./ErrorPage";
 import MiniUser from "./MiniUser";
 
 
@@ -15,10 +14,10 @@ const Article = () => {
     const [listComments, setListComments] = useState([])
     const [newCommentValue, setNewCommentValue] = useState("")
     const { article_id } = useParams()
+    const [error, setError] = useState(null)
 
     function handleInputOnChange(e){
-       
-        setNewCommentValue(e.target.value)
+       setNewCommentValue(e.target.value)
     }
   
     function handleSubmit(e){
@@ -30,7 +29,9 @@ const Article = () => {
             setNewCommentValue("")
             setIsPostingComment(false)
         })
-        .catch(err => console.log("Error posting comment--->", err))
+        .catch((err) => {
+        setError(err)
+        console.log("Error posting comment--->", err)})
      
     }
 
@@ -43,11 +44,15 @@ const Article = () => {
                     setListComments(comments);
                     setIsLoading(false)
                 }).catch((err) => {
-                    console.log("Error gettin article:", article_id,err)
+                    setError(err)
+                    setIsLoading(false)
+                    console.log("Error getting comments", article_id,err.message)
                 })
             })
-                .catch((error) => {
-                    console.log("Error getting comments",article_id,error)
+                .catch((err) => {
+                    console.log("Error getting article",article_id,err.message)
+                    setError(err)
+                    setIsLoading(false)
                 })
         }
     }, [])
@@ -55,7 +60,9 @@ const Article = () => {
         return <p>...Loading</p>
     }
     return <div>
-          <MiniUser/>
+     { error && <ErrorPage errorMsg={error.message} /> }
+     { !error &&
+     (<div> <MiniUser/> 
         <h1 className="article-class">{articleData.title}</h1>
         <img src={articleData.article_img_url} tab={articleData.title} className="logo" />
         <p className="article-class" >By {articleData.author}</p>
@@ -64,16 +71,16 @@ const Article = () => {
 
         <input value={newCommentValue} onChange={(e)=>handleInputOnChange(e)} placeholder="Leave a comment" className="article-class input-comment"/><button onClick={handleSubmit}>Submit</button>
 
-        {isPostingComment ? <p>...Posting comment</p> : <></>}
+        { isPostingComment ? <p>...Posting comment</p> : <></>}
         <h3 className="article-class">Comments</h3>
         <ul key="list-articles">
             {listComments.map(comment => {
                 return <CommentCard comment={comment} />
             })}
         </ul>
-    </div>
-
+        </div> )
+     }
+      </div>
 }
-
 
 export default Article;
