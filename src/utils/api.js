@@ -30,9 +30,9 @@ export const getArticleById = (id) => {
     return ncNews.get(`/articles/${id}`).then(({data}) =>{
         console.log(data)
         return data.article;
-    }).catch(err =>{
-        console.log(err)
-        return err;
+    // }).catch(err =>{
+    //     console.log(err)
+       // return err;
     })
 }
 
@@ -81,3 +81,10 @@ export const getAllTopics = () => {
        return data.topics
     })
 }
+
+export const patchArticleVotes = (id, incVts) => {
+    const bodyArticle = {"inc_votes" : incVts}
+    return ncNews.patch(`/articles/${id}/`, bodyArticle).then(({data}) =>{
+        return data.article
+    })  
+} 

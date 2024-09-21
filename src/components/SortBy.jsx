@@ -3,12 +3,15 @@ const sortedByNames = ["Likes", "Date", "Number of comments"]
 
 import { useState } from "react"
 import { useNavigate, useLocation} from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
-const SortBy = ({topicByQuery}) => {
+const SortBy = () => {
   const navigate = useNavigate();
   const [sortedBy, setSortedBy] = useState("")
   const [isDesc, setIsDesc] = useState(true)//Defaul OrdersBy created_at DESC when empty
   const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const topicByQuery = searchParams.get("topic")
 
   let queryFinal =  location.pathname === '/articles' ?  "?" : '/articles?'
   if(topicByQuery){
@@ -40,9 +43,9 @@ const SortBy = ({topicByQuery}) => {
     navigate(queryFinal);
   }
 
-    return <form>
-    <label className="sorted-by">Order Articles by:</label>
-    <select name="sorted_by" id="sorted_by" value={sortedBy} onChange={(e)=>handleInputOnChange(e)}>
+    return <form className="sort-by">
+    <label className="sorted-by-label"><h4>Order Articles by:</h4> </label>
+    <select className="article-class input-sortby" name="sorted_by" id="sorted_by" value={sortedBy} onChange={(e)=>handleInputOnChange(e)}>
       {sortedByOptions.map((option, index) => {
         return (
           <option value={option} key={index}>
@@ -52,8 +55,8 @@ const SortBy = ({topicByQuery}) => {
       })}
     </select>
    
-    <button  style={{ color: !isDesc ? "black" : "grey" }} onClick={handleAsc}>ASC</button>
-    <button  style={{ color: isDesc ? "black" : "grey" }} onClick={handleDesc}>DESC</button> 
+    <button  style={{ background: !isDesc ? "grey" : "white" }} onClick={handleAsc}>Asc &#8593;</button>
+    <button  style={{ background: isDesc ? "grey" : "white" }} onClick={handleDesc}>Desc &#8595;</button> 
     <button onClick={handleClick}>Go</button>
     
     </form>

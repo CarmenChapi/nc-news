@@ -1,5 +1,6 @@
 const ErrorPage = ({errorMsg}) => {
-    return <h1>{errorMsg}</h1>
+    return <div className="error" >
+   <h1>{errorMsg}</h1> </div>
 }
 
 
