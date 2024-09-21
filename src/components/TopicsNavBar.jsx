@@ -1,30 +1,38 @@
 import { useEffect, useState } from "react";
 import { getAllTopics } from "../utils/api";
 import { Link } from "react-router-dom";
-import SortBy from "./SortBy.jsx";
+import ErrorPage from "./ErrorPage"
 
-const TopicsNavBar = ({topicByQuery}) => {
+
+const TopicsNavBar = () => {
     const [listTopics, setListTopics] = useState([])
+    const [error, setError] =useState(null)
+
     useEffect(() => {
         getAllTopics().then(topics => {
             setListTopics(topics)
         })
         .catch(err => {
             console.log("Error getting topics--->", err)
+            setError(err)
         })
     },[])
    
-    return <div className="topic-nav-bar">
-        <SortBy topicByQuery={topicByQuery}/>
+    return <div>
+         {error && <ErrorPage errorMsg={error.message}/>}
+         {!error && <div className="topic-nav-bar">
         {
             listTopics.map((topic, index) => {
               
                return  <Link key={index} className="nav-links" to={`/articles?topic=${topic.slug}`}>
-               {topic.slug.toUpperCase()} { }
+               <button className="nav-button">{topic.slug[0].toUpperCase()+ topic.slug.slice(1)}</button>
              </Link>
             })
         }
-       
+       {/* <Link key={listTopics.length+1} className="nav-links" to={`/articles?topic=MyArticles`}>
+               <button className="nav-button">My articles</button>
+             </Link> */}
+    </div>}
     </div>
 }
 

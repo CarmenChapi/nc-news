@@ -2,11 +2,33 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  background-color: black
+}
+
+.head{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2em;
+padding: 1em;
+text-align: center;
+text-shadow: 2px;
+justify-content: space-around;
+align-items: center;
+background-color: white;
+border-radius: 3em;
+}
+
+.title:hover{
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.title{
+  color:rgb(243, 51, 51);
 }
 
 .logo {
-  height: 6em;
-  padding: 10px;
+  height: 4em;
+  padding: 5px;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -14,24 +36,73 @@
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mini-user{
+  text-align: center;
+  padding: 1em;
+  background-color:black;
+  width: 200px;
+  margin-right: 50px;
+  border-radius: 3em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.user-name{
+  color:white;
 }
 
 
+.topic-nav-bar{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 2em;
+  padding: 1em;
+  text-align: center;
+  text-shadow: 2px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: black;
+  border-radius: 3em;
+}
 
+.nav-button{
+  background-color: white;
+  border-radius: 20px;
+  border-width: 4px;
+}
+.sort-by{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2em;
+  padding: 1em;
+  text-align: center;
+  text-shadow: 2px;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border-radius: 3em;
+}
+.sorted-by-label{
+  background-color: white;
+  text-align: center;
+  border-radius: 1.5em;
+  width: auto;
+  height: auto;
+}
+.sort-by-input{
+  width: 150px;
+  text-size-adjust: auto;
+  text-decoration: bold;
+  width: auto;
+  height: auto;
+}
+.menu{
+  background-color:black;
+  border-radius: 3em;
+}
+
+h4{
+  color:black
+}
 
 .title-article-card{
   margin-top: 1em;
@@ -41,13 +112,13 @@
 
 }
 .title-article-card:hover {
- background-color: grey;
+ background-color: white
 }
 .button-article-card:hover{
-  background-color: grey;
+  background-color: white
 }
 .photo-article-card:hover{
-  background-color: grey;
+  background-color:  white
 }
 
 .photo-article-card{
@@ -62,29 +133,34 @@
 
 }
 
+
 .listArticles-card{
   display: flex;
 flex-wrap: wrap;
 list-style: none;
-text-align: center;
-padding: auto;
-}
-
-
-
-.head{
-  margin-top: 2px;
+margin: 2em;
 padding: 1em;
 text-align: center;
 text-shadow: 2px;
+justify-content: space-around;
+align-items: center;
+background-color: white;
+border-radius: 3em;
 }
 
-.head:hover{
-  background-color: grey;
-}
+
+
 
 .article-class{
+
   text-align: left;
+  align-items: left;
+  background-color: white;
+  list-style: none;
+  margin: 2em;
+  padding: 1em;
+  text-shadow: 2px;
+  border-radius: 3em;
 }
 
 .comment-card{
@@ -92,56 +168,48 @@ text-shadow: 2px;
   list-style: none;
 }
 
-.title-comments{
-  text-align: left;
-}
-
-.footer-comment{
-  padding: 1em;
-  margin-left: 3em;
-}
 
 .like-comment{
   display: inline-block;
 }
 
 .like-comment:hover{
-  background-color: grey;
+  background-color: rgb(247, 18, 87);
 }
 .like-comment:active{
  background-color: rgba(255, 0, 0, 0.658);
 }
-
 .input-comment{
-  text-align: left;
+width: 700px;
 }
-
+.input-sortby{
+  width: 10rem;
+}
+.error-input{
+  color:crimson;
+}
 
 .article-photo{
   text-align: left;
 }
 
-.hide {
-  display: none;
-}
-
-.nav-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: top;
-  padding: 1rem;
-  margin-top: 0;
-}
-
-.mini-user{
-  text-align: center;
-  padding: 1em;
-  background-color: #bdafafc5;
-  width: 200px;
-  margin-right: 50px;
+.error{
+  color: black;
+  background-color: rgb(26, 253, 5);
+  padding: 4em;
   border-radius: 3em;
-}
-.user-name{
-  color:black
+  margin : 2em
 }
     
+
+.footer{
+  display: flex;
+  margin: 2em;
+padding: 1em;
+text-align: center;
+text-shadow: 2px;
+justify-content: space-around;
+align-items: center;
+background-color: white;
+border-radius: 3em;
+}

@@ -16,13 +16,16 @@ const CommentCard = ({comment}) => {
      function handleVotes(){
         if(!isVoted){
             setVotes(votes + 1)
-            patchCommentVotes(comment.comment_id, 1)
+            patchCommentVotes(comment.comment_id, 1).catch((err)=>{
+                setVotes(votes-1)
+            })
         }
         else
         {
             setVotes(votes - 1)
-            patchCommentVotes(comment.comment_id, -1)
-         
+            patchCommentVotes(comment.comment_id, -1).catch((err)=>{
+                setVotes(votes+1)
+            })
         }
         setIsVoted(!isVoted)
     }
@@ -34,13 +37,13 @@ const CommentCard = ({comment}) => {
     }
     return <li key={comment.id} className="comment-card">
         <div>
-    <p className="comment-card">{comment.body}</p>
-    <p className="comment-card">By {comment.author}</p>
-    {votes !== 0 ? votes===1 ? <p className="comment-card">{votes} Like</p> 
-    :  <p className="comment-card">{votes} Likes</p> 
+    <p>{comment.body}</p>
+    <p>By {comment.author}</p>
+    {votes !== 0 ? votes===1 ? <p>{votes} Like</p> 
+    :  <p>{votes} Likes</p> 
     : <></>}
     <button className="like-comment" onClick={handleVotes} aria-label="Like it">♥</button>
-    <button onClick={handleDelete}>Delete</button>
+    <button onClick={handleDelete}>&#128465;</button>
     </div>
     </li>
 }
