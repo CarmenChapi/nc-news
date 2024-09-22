@@ -2,7 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  background-color: black
+  background-color: rgb(218, 23, 23);
 }
 
 .head{
@@ -12,19 +12,56 @@
 padding: 1em;
 text-align: center;
 text-shadow: 2px;
-justify-content: space-around;
+justify-content: space-between;
 align-items: center;
 background-color: white;
 border-radius: 3em;
 }
 
-.title:hover{
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
 .title{
+  font-size: 300px;
+  cursor:pointer;
   color:rgb(243, 51, 51);
-}
+    position:relative;
+    padding:10px 20px;
+    background:white;
+    font-size:28px;
+    border-top-right-radius:10px;
+    border-bottom-left-radius:10px;
+    transition:all 1s;
+    &:after,&:before{
+      content:" ";
+      width:10px;
+      height:10px;
+      position:absolute;
+      border :0px solid #fff;
+      transition:all 1s;
+      }
+    &:after{
+      top:-1px;
+      left:-1px;
+      border-top:5px solid black;
+      border-left:5px solid black;
+    }
+    &:before{
+      bottom:-1px;
+      right:-1px;
+      border-bottom:5px solid black;
+      border-right:5px solid black;
+    }
+    &:hover{
+      border-top-right-radius:0px;
+    border-bottom-left-radius:0px;
+      &:before,&:after{
+        
+        width:100%;
+        height:100%;
+    
+      }
+    }
+  }
+  
+
 
 .logo {
   height: 4em;
@@ -33,70 +70,73 @@ border-radius: 3em;
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #0376faaa);
 }
 
 .mini-user{
   text-align: center;
   padding: 1em;
-  background-color:black;
+  color:black;
+  background-color:white;
   width: 200px;
   margin-right: 50px;
-  border-radius: 3em;
+  border-radius: 5em;
+  border-style: solid;
+  border-width: medium;
 }
 
-.user-name{
-  color:white;
-}
 
 
 .topic-nav-bar{
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 2em;
+  margin: 0.5em;
   padding: 1em;
   text-align: center;
   text-shadow: 2px;
   justify-content: space-around;
   align-items: center;
-  background-color: black;
+  background-color: white;
   border-radius: 3em;
+}
+.loading{
+  text-align: center;
+  background-color: aliceblue;
+  color: black;
 }
 
 .nav-button{
   background-color: white;
   border-radius: 20px;
-  border-width: 4px;
+  border-style: solid;
+  border-width: medium;
+}
+.nav-button:hover{
+background: yellow;
 }
 .sort-by{
   display: flex;
   flex-wrap: wrap;
-  margin: 2em;
   padding: 1em;
   text-align: center;
   text-shadow: 2px;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: white;
   border-radius: 3em;
 }
 .sorted-by-label{
   background-color: white;
   text-align: center;
   border-radius: 1.5em;
-  width: auto;
-  height: auto;
 }
 .sort-by-input{
-  width: 150px;
-  text-size-adjust: auto;
+
   text-decoration: bold;
-  width: auto;
-  height: auto;
 }
 .menu{
-  background-color:black;
+  background-color:white;
   border-radius: 3em;
 }
 
@@ -115,7 +155,10 @@ h4{
  background-color: white
 }
 .button-article-card:hover{
-  background-color: white
+background-color: yellow;
+}
+.article-card:hover{
+  filter: drop-shadow(0 0 2em yellow);
 }
 .photo-article-card:hover{
   background-color:  white
@@ -131,6 +174,44 @@ h4{
   flex-wrap: wrap;
   text-align: center;
 
+}
+.user{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-radius: 3em;
+  margin: 2em;
+padding: 4em;
+text-shadow: 2px;
+align-items: center;
+
+}
+
+.form-user{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-radius: 3em;
+  margin: 2em;
+padding: 4em;
+text-shadow: 2px;
+align-items: center;
+}
+
+.list-user-card{
+  border-style: solid;
+  border-radius: 3em;
+  margin: 2em;
+  padding: 2em;
+}
+.list-users{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
 }
 
 
@@ -170,14 +251,23 @@ border-radius: 3em;
 
 
 .like-comment{
-  display: inline-block;
+  border-radius: 5em;
 }
-
+.list-user-card:hover{
+  background:  rgb(243, 247, 18);
+}
 .like-comment:hover{
-  background-color: rgb(247, 18, 87);
+  filter: drop-shadow(0 0  1em rgb(247, 18, 87));
+}
+.bin:hover{
+  background-color: rgb(102, 158, 233);
+
+}
+.bin{
+  margin-left: 2em;
 }
 .like-comment:active{
- background-color: rgba(255, 0, 0, 0.658);
+ background-color:  rgb(247, 18, 87);
 }
 .input-comment{
 width: 700px;
@@ -195,10 +285,10 @@ width: 700px;
 
 .error{
   color: black;
-  background-color: rgb(26, 253, 5);
-  padding: 4em;
-  border-radius: 3em;
-  margin : 2em
+  background-color: whitesmoke;
+  text-align: center;
+  width: 60em;
+  height: 30em;
 }
     
 
@@ -213,3 +303,5 @@ align-items: center;
 background-color: white;
 border-radius: 3em;
 }
+
+

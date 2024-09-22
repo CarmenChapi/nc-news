@@ -39,7 +39,7 @@ const SortBy = () => {
         queryFinal += sortedBy ? '&order=asc' : '?order=asc'
       }
     
-    console.log(queryFinal)
+    //console.log(queryFinal)
     navigate(queryFinal);
   }
 

@@ -19,16 +19,14 @@ export const getArticles = (topicQuery, orderByQuery, dirOrderQuery) => {
         queryFinal += isQuery ? '&' : '?'
         queryFinal += `order=${dirOrderQuery}`
     }
-    console.log('Api getArticles:', queryFinal)
+    //console.log('Api getArticles:', queryFinal)
     return ncNews.get(queryFinal).then(({data}) =>{
-        console.log(data.articles)
         return data.articles;
     })
 }
 
 export const getArticleById = (id) => {
     return ncNews.get(`/articles/${id}`).then(({data}) =>{
-        console.log(data)
         return data.article;
     // }).catch(err =>{
     //     console.log(err)
@@ -56,28 +54,24 @@ export const postComment = (id, body2, username2) => {
                       }
                       console.log(bodyComment, id)
         return ncNews.post(`/articles/${id}/comments`, bodyComment).then(({data}) =>{
-                     console.log(data.comment)
                     return data.comment
         })
 }
 
 export const deleteComment = (id) => {
         return ncNews.delete(`comments/${id}`).then(() =>{
-            console.log("201 delete "+id)
            return "201"
         })
 }
 
-export const getAllUser = () => {
+export const getAllUsers = () => {
     return ncNews.get(`/users`).then(({data}) =>{
-        console.log(data.users)
        return data.users
     })
 }
 
 export const getAllTopics = () => {
     return ncNews.get(`/topics`).then(({data}) =>{
-        console.log(data.topics)
        return data.topics
     })
 }
