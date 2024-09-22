@@ -35,17 +35,15 @@ const CommentCard = ({comment}) => {
     if(isDeleted){
         return <></>
     }
-    return <li key={comment.id} className="comment-card">
-        <div>
+    return <div>
     <p>{comment.body}</p>
     <p>By {comment.author}</p>
     {votes !== 0 ? votes===1 ? <p>{votes} Like</p> 
     :  <p>{votes} Likes</p> 
     : <></>}
     <button className="like-comment" onClick={handleVotes} aria-label="Like it">♥</button>
-    <button onClick={handleDelete}>&#128465;</button>
+    <button className="bin" onClick={handleDelete}>&#128465;</button>
     </div>
-    </li>
 }
 
 export default CommentCard

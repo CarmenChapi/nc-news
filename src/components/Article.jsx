@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getArticleById } from "../utils/api";
+import { getArticleById, patchArticleVotes } from "../utils/api";
 import ErrorPage from "./ErrorPage";
-import { patchArticleVotes } from "../utils/api";
 import ListComments from "./ListComments";
 
 const Article = ({ article }) => {
@@ -59,7 +58,7 @@ const Article = ({ article }) => {
       {!error && (
         <div>
           <h1>{articleData.title}</h1>
-          <img src={articleData.article_img_url} tab={articleData.title} />
+          <img src={articleData.article_img_url} tab="photo about this article" />
           <p>By {articleData.author}</p>
           {articleData.votes !== 0 ? (
             articleData.votes === 1 ? (
