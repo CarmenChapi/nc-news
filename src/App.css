@@ -113,7 +113,7 @@ border-radius: 3em;
 }
 .nav-button{
   background-color: white;
-  border-radius: 20px;
+  border-radius: 2em;
   border-style: solid;
   border-width: medium;
   margin: 2em;
@@ -158,24 +158,40 @@ h4{
   width: 230px;
 
 }
-.title-article-card:hover {
- background-color:  LightCoral;
-}
+
 .button-article-card:hover{
 background-color: LightCoral;
 }
 
 
 .button-article-card{
+  height: 3em;
+  text-align: center;
   font-weight: bold;
   padding: 1em;
   margin: 0.2em;
   }
+.article-card{
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: 5em;
+}
+.article-card:hover{
+  background-color: LightCoral;
+ 
+  border-style: solid;
+  border-width: medium;
+}
+.listArticles-card{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
 
+}
 
 
 .photo-article-card{
-  width: 200px;
+  width: 15em;
   text-align: center;
 }
 

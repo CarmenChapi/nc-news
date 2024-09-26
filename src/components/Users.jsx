@@ -16,6 +16,7 @@ const Users = ({error}) => {
     const [isLogIn, setLogIn] = useState(false)
     const [isEmptyInput, setIsEmptyInput] = useState(false)
     const [isIncorrectUser, setIsIncorrectUser] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     if(isLogIn){
         navigate("/");
@@ -52,6 +53,11 @@ const Users = ({error}) => {
         })
         .catch((err)=>{console.log("Error getting users->",err)})
     },[])
+
+    if (isLoading) {
+        return <div><h2 className='loading'>...Loading</h2></div>
+    }
+
     return <section className="user">
         <form className='form-user'>
         {error && <p>{error}</p>}

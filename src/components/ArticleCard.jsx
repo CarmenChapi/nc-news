@@ -11,7 +11,7 @@ const ArticleCard = ({article}) => {
     return <section className="article-card">
         <h3 className="title-article-card" onClick={handleOnClick}>{article.title}</h3>
         <img onClick={handleOnClick} className="photo-article-card" src={article.article_img_url} tab="mini photo of article"/>
-        <div className="footer-article-card"><p>{article.topic[0].toUpperCase()+ article.topic.slice(1)} - By {article.author}</p><button className="button-article-card" onClick={handleOnClick}>&#43;</button></div>
+        <div className="footer-article-card"><p>{article.topic[0].toUpperCase()+ article.topic.slice(1)} - By {article.author}</p><button className="button-article-card" onClick={handleOnClick}>&#x3e;</button></div>
         </section>
 }
 

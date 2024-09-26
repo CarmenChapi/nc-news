@@ -60,11 +60,11 @@ const ListComments = ({article_id}) => {
         }
     }, [])
      if (isLoading) {
-        return <div><p>...Loading comments</p></div>
+        return <div><h3 className="loading">...Loading comments</h3></div>
     }
 
     return <section>
-        <form>
+        <form label="comment-input">
         <input value={newCommentValue} onChange={(e)=>handleInputOnChange(e)} placeholder="Leave comment" className="article-class input-comment" aria-label="Leave a comment"/><button onClick={handleSubmit}>Submit</button>
         {isEmptyInputError ? <p className="error-input"> Text empty, write text before send comment</p> : <></>}
         </form>

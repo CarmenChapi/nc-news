@@ -49,8 +49,7 @@ const SortBy = () => {
     <select label="sortBy" className= "input-sortby" name="sorted_by" id="sorted_by" value={sortedBy} onChange={(e)=>handleInputOnChange(e)}>
       {sortedByOptions.map((option, index) => {
         return (
-          <option value={option} key={index} label={`option${option}`}>
-            {sortedByNames[index]}
+          <option value={option} key={index} label={`${sortedByNames[index]}`}>
           </option>
         );
       })}

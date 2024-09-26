@@ -1,7 +1,6 @@
 import { UserContext } from "../context/UserContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import Users from "./Users"
 
 const MiniUser = () => {
   const { user, setUser } = useContext(UserContext);
