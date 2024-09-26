@@ -4,15 +4,15 @@ import { getArticleById, patchArticleVotes } from "../utils/api";
 import ErrorPage from "./ErrorPage";
 import ListComments from "./ListComments";
 
-const Article = ({ article }) => {
-  console.log(article);
+const Article = () => {
+  //console.log(article);
 
   const [isLoading, setIsLoading] = useState(true);
   const [articleData, setArticleData] = useState({});
   const { article_id } = useParams();
   const [error, setError] = useState(null);
   const [isVoted, setIsVoted] = useState(false);
-  console.log(article_id);
+ const [date, setDate] = useState(new Date())
   function handleVotesArticle() {
     if (!isVoted) {
       articleData.votes++;
@@ -39,6 +39,8 @@ const Article = ({ article }) => {
       getArticleById(article_id)
         .then((article) => {
           setArticleData(article);
+          const d  = new Date(article.created_at);
+          setDate(d.toUTCString().slice(4,-4))
           setIsLoading(false);
         })
         .catch((err) => {
@@ -49,16 +51,16 @@ const Article = ({ article }) => {
     }
   }, []);
   if (isLoading) {
-    return <h1>...Loading</h1>;
+    return <section><h1 className="loading">...Loading</h1></section>;
   }
   return (
-    <div className="article-class">
-      {error && <ErrorPage errorMsg={`${error.message}`} />}
+    <section className="article-class">
+      {error && <ErrorPage errorMsg={`404 Not Found`} />}
 
       {!error && (
-        <div>
-          <h1>{articleData.title}</h1>
-          <img src={articleData.article_img_url} tab="photo about this article" />
+        <section className="article-class">
+          <h2>{articleData.title}</h2>
+          <img src={articleData.article_img_url} tab="article photograph" />
           <p>By {articleData.author}</p>
           {articleData.votes !== 0 ? (
             articleData.votes === 1 ? (
@@ -69,18 +71,19 @@ const Article = ({ article }) => {
           ) : (
             <></>
           )}
-          <button className="like-comment" onClick={handleVotesArticle}>
+          <button className="like-comment" onClick={handleVotesArticle} aria-label="Like it">
             ♥
           </button>
-          <p>{articleData.created_at.split("T")[0]}</p>
+          
+          <p>{date}</p>
           <p>
             {articleData.topic[0].toUpperCase() + articleData.topic.slice(1)}-{" "}
             {articleData.body}
           </p>
           <ListComments article_id={article_id} />
-        </div>
-      )}
-    </div>
+        </section>
+      )} 
+    </section>
   );
 };
 

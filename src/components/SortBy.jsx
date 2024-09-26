@@ -43,23 +43,25 @@ const SortBy = () => {
     navigate(queryFinal);
   }
 
-    return <form className="sort-by">
-    <label className="sorted-by-label"><h4>Order Articles by:</h4> </label>
-    <select className="article-class input-sortby" name="sorted_by" id="sorted_by" value={sortedBy} onChange={(e)=>handleInputOnChange(e)}>
+    return <section className="sort-by">
+    <form className="sort-by" label="select">
+    <label label="orderBy"className="sorted-by-label"><h2>Order Articles by:</h2> </label>
+    <select label="sortBy" className= "input-sortby" name="sorted_by" id="sorted_by" value={sortedBy} onChange={(e)=>handleInputOnChange(e)}>
       {sortedByOptions.map((option, index) => {
         return (
-          <option value={option} key={index}>
+          <option value={option} key={index} label={`option${option}`}>
             {sortedByNames[index]}
           </option>
         );
       })}
     </select>
    
-    <button  style={{ background: !isDesc ? "grey" : "white" }} onClick={handleAsc}>Asc &#8593;</button>
-    <button  style={{ background: isDesc ? "grey" : "white" }} onClick={handleDesc}>Desc &#8595;</button> 
+    <button  style={{ background: !isDesc ? "LightCoral" : "white" }} onClick={handleAsc}>Asc &#8593;</button>
+    <button  style={{ background: isDesc ? "LightCoral" : "white" }} onClick={handleDesc}>Desc &#8595;</button> 
     <button onClick={handleClick}>Go</button>
     
     </form>
+    </section>
 }
 
 export default SortBy;
