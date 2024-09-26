@@ -60,13 +60,13 @@ const ListComments = ({article_id}) => {
         }
     }, [])
      if (isLoading) {
-        return <p>...Loading comments</p>
+        return <div><h3 className="loading">...Loading comments</h3></div>
     }
 
-    return <div>
-        <form>
-        <input value={newCommentValue} onChange={(e)=>handleInputOnChange(e)} placeholder="Leave a comment" className="article-class input-comment"/><button onClick={handleSubmit}>Submit</button>
-        {isEmptyInputError ? <p className="error-input"> Must write text to submit </p> : <></>}
+    return <section>
+        <form label="comment-input">
+        <input value={newCommentValue} onChange={(e)=>handleInputOnChange(e)} placeholder="Leave comment" className="article-class input-comment" aria-label="Leave a comment"/><button onClick={handleSubmit}>Submit</button>
+        {isEmptyInputError ? <p className="error-input"> Text empty, write text before send comment</p> : <></>}
         </form>
         { isPostingComment ? <h2>...Posting comment</h2> : <></>}
         
@@ -79,7 +79,7 @@ const ListComments = ({article_id}) => {
             })}
         </ul>
         }
-        </div>
+        </section>
 }
 
 

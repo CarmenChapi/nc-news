@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import { getAllTopics } from "../utils/api";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import ErrorPage from "./ErrorPage"
 import { UserContext } from "../context/UserContext";
 import { useContext } from "react";
 
+
 const TopicsNavBar = () => {
     const { user, setUser } = useContext(UserContext);
+
     const [listTopics, setListTopics] = useState([])
     const [error, setError] =useState(null)
 
     useEffect(() => {
+
+    
         getAllTopics().then(topics => {
             setListTopics(topics)
         })
@@ -20,7 +24,7 @@ const TopicsNavBar = () => {
         })
     },[])
    
-    return <div>
+    return <section>
          {error && <ErrorPage errorMsg={error.message}/>}
          {!error && <div className="topic-nav-bar">
         {
@@ -31,11 +35,12 @@ const TopicsNavBar = () => {
              </Link>
             })
         }
+      { user &&
         <Link key={listTopics.length+1} className="nav-links" to={`/articles?author=${user.username}`}>
                <button className="nav-button">My articles</button>
-             </Link> 
+             </Link> }
     </div>}
-    </div>
+    </section>
 }
 
 export default TopicsNavBar; 

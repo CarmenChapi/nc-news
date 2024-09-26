@@ -62,16 +62,13 @@ border-radius: 3em;
   }
   
 
-
 .logo {
   height: 4em;
-  padding: 5px;
+  padding: 1em;
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #0376faaa);
-}
+
 
 .mini-user{
   text-align: center;
@@ -104,16 +101,26 @@ border-radius: 3em;
   text-align: center;
   background-color: aliceblue;
   color: black;
+  height: 8em;
 }
-
-.nav-button{
+.login-button{
   background-color: white;
   border-radius: 20px;
   border-style: solid;
   border-width: medium;
+  margin: 0.5em;
+  padding: 0.5em;
 }
-.nav-button:hover{
-background: yellow;
+.nav-button{
+  background-color: white;
+  border-radius: 2em;
+  border-style: solid;
+  border-width: medium;
+  margin: 2em;
+  padding: 1em;
+}
+.nav-button, .login-button:hover{
+background-color:   LightCoral;
 }
 .sort-by{
   display: flex;
@@ -151,21 +158,40 @@ h4{
   width: 230px;
 
 }
-.title-article-card:hover {
- background-color: white
-}
+
 .button-article-card:hover{
-background-color: yellow;
-}
-.article-card:hover{
-  filter: drop-shadow(0 0 2em yellow);
-}
-.photo-article-card:hover{
-  background-color:  white
+background-color: LightCoral;
 }
 
+
+.button-article-card{
+  height: 3em;
+  text-align: center;
+  font-weight: bold;
+  padding: 1em;
+  margin: 0.2em;
+  }
+.article-card{
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: 5em;
+}
+.article-card:hover{
+  background-color: LightCoral;
+ 
+  border-style: solid;
+  border-width: medium;
+}
+.listArticles-card{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+
+}
+
+
 .photo-article-card{
-  width: 200px;
+  width: 15em;
   text-align: center;
 }
 
@@ -186,21 +212,11 @@ background-color: yellow;
 padding: 4em;
 text-shadow: 2px;
 align-items: center;
+justify-content: center;
+
 
 }
 
-.form-user{
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  background-color: white;
-  color: black;
-  border-radius: 3em;
-  margin: 2em;
-padding: 4em;
-text-shadow: 2px;
-align-items: center;
-}
 
 .list-user-card{
   border-style: solid;
@@ -227,6 +243,7 @@ justify-content: space-around;
 align-items: center;
 background-color: white;
 border-radius: 3em;
+color: black;
 }
 
 
@@ -242,6 +259,7 @@ border-radius: 3em;
   padding: 1em;
   text-shadow: 2px;
   border-radius: 3em;
+  color: black;
 }
 
 .comment-card{
@@ -257,10 +275,10 @@ border-radius: 3em;
   background:  rgb(243, 247, 18);
 }
 .like-comment:hover{
-  filter: drop-shadow(0 0  1em rgb(247, 18, 87));
+  filter: drop-shadow(0 0  1em  rgb(218, 23, 23));
 }
 .bin:hover{
-  background-color: rgb(102, 158, 233);
+  background-color: LightCoral;
 
 }
 .bin{
@@ -274,11 +292,14 @@ width: 700px;
 }
 .input-sortby{
   width: 10rem;
+  height: 3em;
 }
 .error-input{
-  color:crimson;
+  color: rgb(218, 23, 23);;
 }
-
+.input-user{
+  height: 3em;
+}
 .article-photo{
   text-align: left;
 }

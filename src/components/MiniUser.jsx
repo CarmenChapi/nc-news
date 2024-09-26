@@ -5,16 +5,20 @@ import { Link } from "react-router-dom";
 const MiniUser = () => {
   const { user, setUser } = useContext(UserContext);
 
-    return <div>
+  function handleSubmit(){
+    setUser(null)
+  }
+ 
+    return <section>
       {!user && <></>}
       {user && <div className="mini-user">
-        <img className="logo" src={user.avatar_url} tab="user logo"/>
+        <img className="logo" src={user.avatar_url} tab="user-avatar"/>
         <p className="user-name">{user.username}</p>
         <Link to="/users">
-           <button className="nav-button">Log out</button> 
+           <button onClick={handleSubmit }className="login-button">Log out</button> 
         </Link>
       </div>}
-      </div>
+      </section>
 
 };
 export default MiniUser;
