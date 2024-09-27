@@ -15,7 +15,7 @@ const Header = () => {
        { user &&
        <div className="head" id="head">
         <Link to="/" className="head">
-        <h1 className="title">NC NEWS</h1>
+        <div className="title" ><h1 className="nc-news">NC NEWS</h1></div>
         </Link>
         <h2>{Date().split('G')[0]}         </h2>
         <MiniUser/> </div>}

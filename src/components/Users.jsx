@@ -50,6 +50,7 @@ const Users = ({error}) => {
     useEffect(() => {
         getAllUsers().then(users => {
             setListUsers(users)
+            setIsLoading(false)
         })
         .catch((err)=>{console.log("Error getting users->",err)})
     },[])

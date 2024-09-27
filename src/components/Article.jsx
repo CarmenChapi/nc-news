@@ -40,7 +40,7 @@ const Article = () => {
         .then((article) => {
           setArticleData(article);
           const d  = new Date(article.created_at);
-          setDate(d.toUTCString().slice(4,-4))
+          setDate(d.toUTCString().slice(4,-7))
           setIsLoading(false);
         })
         .catch((err) => {

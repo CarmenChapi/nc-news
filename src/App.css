@@ -17,11 +17,13 @@ align-items: center;
 background-color: white;
 border-radius: 3em;
 }
-
-.title{
-  font-size: 300px;
-  cursor:pointer;
+.nc-news{
   color:rgb(243, 51, 51);
+}
+.title{
+
+  cursor:pointer;
+
     position:relative;
     padding:10px 20px;
     background:white;
@@ -77,9 +79,20 @@ border-radius: 3em;
   background-color:white;
   width: 200px;
   margin-right: 50px;
+}
+.mini-user:hover{
+
   border-radius: 5em;
   border-style: solid;
   border-width: medium;
+}
+
+
+.mini-photo{
+  border-radius: 5em;
+  border-style: solid;
+  border-width: medium;
+  background-color: white;
 }
 
 
@@ -102,6 +115,8 @@ border-radius: 3em;
   background-color: aliceblue;
   color: black;
   height: 8em;
+  margin: 4em;
+  padding: 2em;
 }
 .login-button{
   background-color: white;
@@ -119,7 +134,7 @@ border-radius: 3em;
   margin: 2em;
   padding: 1em;
 }
-.nav-button, .login-button:hover{
+.nav-button, .login-button{
 background-color:   LightCoral;
 }
 .sort-by{
@@ -174,13 +189,13 @@ background-color: LightCoral;
 .article-card{
   padding: 0.5em;
   margin: 0.5em;
-  border-radius: 5em;
+
 }
 .article-card:hover{
-  background-color: LightCoral;
- 
+  border-radius: 5em;
   border-style: solid;
   border-width: medium;
+ 
 }
 .listArticles-card{
   display: flex;

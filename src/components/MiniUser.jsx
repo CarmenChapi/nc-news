@@ -12,7 +12,7 @@ const MiniUser = () => {
     return <section>
       {!user && <></>}
       {user && <div className="mini-user">
-        <img className="logo" src={user.avatar_url} tab="user-avatar"/>
+        <img className="logo mini-photo" src={user.avatar_url} tab="user-avatar"/>
         <p className="user-name">{user.username}</p>
         <Link to="/users">
            <button onClick={handleSubmit }className="login-button">Log out</button> 

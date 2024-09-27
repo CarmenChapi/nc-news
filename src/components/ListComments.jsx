@@ -15,6 +15,7 @@ const ListComments = ({article_id}) => {
     const [error, setError] = useState(null)
     const [isEmptyInputError, setIsInputEmptyError] = useState(null)
     const [isEmptyCommentsList, setIsEmptyCommentsList] = useState(true)
+    const [errorPosting, setErrorPosting] = useState(false)
 
     function handleInputOnChange(e){
         setNewCommentValue(e.target.value)
@@ -22,7 +23,7 @@ const ListComments = ({article_id}) => {
    
      function handleSubmit(e){
          e.preventDefault()
-     
+         setErrorPosting(null)
          if(newCommentValue){
         setIsInputEmptyError(false)
          setIsPostingComment(true)
@@ -31,10 +32,13 @@ const ListComments = ({article_id}) => {
              setNewCommentValue("")
              setIsPostingComment(false)
              setIsEmptyCommentsList(false)
+             setErrorPosting(null)
          })
          .catch((err) => {
-         setError(err)
- 
+         setErrorPosting(err)
+         setIsPostingComment(false)
+         setIsEmptyCommentsList(false)
+         setNewCommentValue("")
          console.log("Error posting comment--->", err.status)})
          }else{
             setIsInputEmptyError(true)
@@ -69,6 +73,7 @@ const ListComments = ({article_id}) => {
         {isEmptyInputError ? <p className="error-input"> Text empty, write text before send comment</p> : <></>}
         </form>
         { isPostingComment ? <h2>...Posting comment</h2> : <></>}
+        { errorPosting ? <h2>Error posting comment. Try again</h2> : <></>}
         
         <h3>Comments</h3>
         { isEmptyCommentsList ? <h3>No Comments yet</h3> :

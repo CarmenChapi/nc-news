@@ -42,11 +42,11 @@ const CommentCard = ({comment}) => {
         return <></>
     }
     if(isErrorCommenting){
-        return <p>Error posting comment. Try again</p>
+        return <p>Error rating comment. Try again</p>
     }
     return <section>
-    <p>{comment.body}</p>
-    <p>By {comment.author}</p> <p>{date.toUTCString().slice(4,-4)}</p>
+    <h4>{comment.body}</h4>
+    <p>By {comment.author}</p> <p>{date.toUTCString().slice(4,-7)}</p>
     {votes !== 0 ? votes===1 ? <p>{votes} Like</p> 
     :  <p>{votes} Likes</p> 
     : <></>}
