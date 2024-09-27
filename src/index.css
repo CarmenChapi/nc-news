@@ -46,7 +46,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: red;
+  border-color: wheat;
 }
 button:focus,
 button:focus-visible {
@@ -55,7 +55,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: black;
     background-color: #ffffff;
   }
   a:hover {
@@ -65,3 +65,26 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.app {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: min-content auto auto;
+  grid-template-areas:
+    "head"
+    "topic-nav-bar"
+    "sort-by"
+    "listArticles-card";
+}
+
+/* @media only screen and (min-width: 600px) {
+  .app {
+    grid-template-columns: 25% 75%;
+    grid-template-rows: min-content auto;
+    grid-template-areas:
+      "head"
+      "topic-nav-bar"
+      "sort-by"
+      "listArticles-card";
+  }
+} */

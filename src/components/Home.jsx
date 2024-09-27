@@ -46,12 +46,11 @@ const Home= () => {
       {error && <ErrorPage errorMsg={error.message}/>}
     {!error && 
     <section>
-      <div className="listArticles-card">
+      <div>
       {topicByQuery ? <h1>{`List of ${topicByQuery[0].toUpperCase()+topicByQuery.slice(1)} Articles`}</h1> : <h1>List of Articles</h1> } 
-          <div className="menu">
+    
           <TopicsNavBar /> 
           <SortBy />
-          </div>
     
     <ul className="listArticles-card">
         {listArticles.map(article => {
