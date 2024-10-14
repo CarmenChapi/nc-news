@@ -11,7 +11,7 @@ const UserCard = ({userL}) => {
     }
     
     return <section className="list-user-card" onClick={handlePickUser}>
-        <img className="logo" src={userL.avatar_url} tab={`${userL.username} avatar`}/>
+        <img className="user-avatar" src={userL.avatar_url} tab={`${userL.username} avatar`}/>
         <h3>{userL.username}</h3>
         <h3>{userL.name}</h3>
         </section>

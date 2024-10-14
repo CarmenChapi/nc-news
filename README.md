@@ -17,6 +17,8 @@
 - as a user, I can vote for an article
 - as a user, I can leave a comment or delete
 - as a user, I can vote for a comment
+- as a user, I can go to the home page click in in the logo
+- as a user, I can change log out the user by default, and pick another user
 
 ## BE api repo
 - https://github.com/CarmenChapi/NewsCarmen.git

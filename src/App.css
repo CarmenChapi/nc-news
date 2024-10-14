@@ -1,22 +1,18 @@
 #root {
-  max-width: 1280px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
   background-color: rgb(218, 23, 23);
 }
 
 .head{
   display: flex;
   flex-wrap: wrap;
-  margin: 2em;
-padding: 1em;
 text-align: center;
-text-shadow: 2px;
 justify-content: space-between;
 align-items: center;
 background-color: white;
-border-radius: 3em;
 }
+
 .nc-news{
   color:rgb(243, 51, 51);
 }
@@ -65,10 +61,15 @@ border-radius: 3em;
   
 
 .logo {
+  height: 2em;
+  width: 2em;
+  padding: 1em;
+  text-align: center;
+}
+
+.user-avatar{
   height: 4em;
   padding: 1em;
-  will-change: filter;
-  transition: filter 300ms;
 }
 
 
@@ -77,22 +78,27 @@ border-radius: 3em;
   padding: 1em;
   color:black;
   background-color:white;
-  width: 200px;
-  margin-right: 50px;
+  width: 13em;
+  margin-right: 3em;
 }
-.mini-user:hover{
 
-  border-radius: 5em;
+.user-name{
+  margin-top: 0px;
+}
+/* .mini-user:hover{
+
+  border-radius: 6em;
   border-style: solid;
   border-width: medium;
-}
+} */
 
 
 .mini-photo{
-  border-radius: 5em;
+  border-radius: 4em;
   border-style: solid;
   border-width: medium;
   background-color: white;
+  margin-bottom: 0px;
 }
 
 
@@ -107,19 +113,19 @@ border-radius: 3em;
   justify-content: space-around;
   align-items: center;
   background-color: white;
-  border-radius: 3em;
+  border-radius: 6em;
 }
 .loading{
   text-align: center;
-  background-color: aliceblue;
-  color: black;
+  background-color: white;
+  color: gray;
   height: 8em;
-  margin: 4em;
+  margin: 3em;
   padding: 2em;
 }
 .login-button{
   background-color: white;
-  border-radius: 20px;
+  border-radius: 3em;
   border-style: solid;
   border-width: medium;
   margin: 0.5em;
@@ -142,7 +148,6 @@ background-color:   LightCoral;
   padding: 0.5em;
   margin:0.5em;
   text-align: center;
-  text-shadow: 2px;
   align-items: center;
   justify-content: center;
   background-color: white;
@@ -167,55 +172,70 @@ h4{
 }
 
 .title-article-card{
-  margin-top: 1em;
-  font-weight: bold;
-  margin-left: 1em;
-  width: 230px;
-
+  width: 8em;
+  margin-right: 5px; 
+  font-size: small;
 }
 
 .button-article-card:hover{
 background-color: LightCoral;
 }
 
+.seeMore{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 
-.button-article-card{
-  height: 3em;
-  text-align: center;
-  font-weight: bold;
-  padding: 1em;
-  margin: 0.2em;
-  }
 .article-card{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   padding: 0.5em;
   margin: 0.5em;
 
 }
 .article-card:hover{
-  border-radius: 5em;
+  border-radius: 3em;
   border-style: solid;
   border-width: medium;
  
+}
+.top-card{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  flex-direction: row;
+  
 }
 .listArticles-card{
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  justify-content: left;
 
 }
 
 
 .photo-article-card{
-  width: 15em;
+  width: 8em;
   text-align: center;
 }
+
+
 
 .footer-article-card{
-  display: flex;
-  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  font-size: smaller;
   text-align: center;
-
 }
+
+
 .user{
   display: flex;
   flex-wrap: wrap;
@@ -225,7 +245,6 @@ background-color: LightCoral;
   border-radius: 3em;
   margin: 2em;
 padding: 4em;
-text-shadow: 2px;
 align-items: center;
 justify-content: center;
 
@@ -236,13 +255,14 @@ justify-content: center;
 .list-user-card{
   border-style: solid;
   border-radius: 3em;
-  margin: 2em;
-  padding: 2em;
+  margin: 0.5em;
+  padding: 0.5em;
 }
 .list-users{
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  justify-content: center;
 }
 
 
@@ -253,7 +273,6 @@ list-style: none;
 margin: 2em;
 padding: 1em;
 text-align: center;
-text-shadow: 2px;
 justify-content: space-around;
 align-items: center;
 background-color: white;
@@ -261,7 +280,9 @@ border-radius: 3em;
 color: black;
 }
 
-
+.photoArticle{
+  width: 37em;
+}
 
 
 .article-class{
@@ -270,16 +291,18 @@ color: black;
   align-items: left;
   background-color: white;
   list-style: none;
-  margin: 2em;
-  padding: 1em;
+  margin: 3em;
+  padding: 2em;
   text-shadow: 2px;
   border-radius: 3em;
   color: black;
+  width: 40em;
 }
 
 .comment-card{
   text-align: left;
   list-style: none;
+  font-size: smaller;
 }
 
 
@@ -303,7 +326,7 @@ color: black;
  background-color:  rgb(247, 18, 87);
 }
 .input-comment{
-width: 700px;
+width: 38em;
 }
 .input-sortby{
   width: 10rem;
@@ -321,23 +344,26 @@ width: 700px;
 
 .error{
   color: black;
-  background-color: whitesmoke;
+  background-color: white;
   text-align: center;
-  width: 60em;
-  height: 30em;
+  width: 38em;
+  height: 20em;
+padding: 5em;
+margin: 2em;
 }
-    
+
+.errorTitle{
+  margin-top: 2em;
+  padding: 2em;
+  text-align: center;
+}
 
 .footer{
   display: flex;
-  margin: 2em;
-padding: 1em;
 text-align: center;
-text-shadow: 2px;
 justify-content: space-around;
 align-items: center;
 background-color: white;
-border-radius: 3em;
 }
 
 

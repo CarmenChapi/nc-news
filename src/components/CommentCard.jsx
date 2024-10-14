@@ -50,8 +50,8 @@ const CommentCard = ({comment}) => {
     {votes !== 0 ? votes===1 ? <p>{votes} Like</p> 
     :  <p>{votes} Likes</p> 
     : <></>}
-    <button className="like-comment" onClick={handleVotes} aria-label="Like it">♥</button>
-    <button className="bin" onClick={handleDelete}>&#128465;</button>
+    <a className="like-comment" onClick={handleVotes} aria-label="Like it">♥</a>
+    <a className="bin" onClick={handleDelete}>&#128465;</a>
     </section>
 }
 
