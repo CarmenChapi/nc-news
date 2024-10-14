@@ -54,13 +54,13 @@ const Article = () => {
     return <section><h1 className="loading">...Loading</h1></section>;
   }
   return (
-    <section className="article-class">
+    <section >
       {error && <ErrorPage errorMsg={`404 Not Found`} />}
 
       {!error && (
         <section className="article-class">
           <h2>{articleData.title}</h2>
-          <img src={articleData.article_img_url} tab="article photograph" />
+          <img className="photoArticle" src={articleData.article_img_url} tab="article photograph" />
           <p>By {articleData.author}</p>
           {articleData.votes !== 0 ? (
             articleData.votes === 1 ? (
