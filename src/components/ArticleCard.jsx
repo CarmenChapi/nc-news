@@ -25,13 +25,16 @@ const ArticleCard = ({article}) => {
             <h3 className="title-article-card" onClick={handleOnClick}>{article.title}</h3></div>}
         {(article.title.length >= 25 && !isSeeMore) && 
         <div className="top-card"><h3 className="title-article-card" onClick={handleOnClick}>{article.title.slice(0,20)}...</h3>
-        <a className="seeMore" onClick={handleSeeMore}><BiChevronDownCircle fontSize="2em"/></a></div>}
+        <a className="seeMore" onClick={handleSeeMore}
+        alt="See more" title="See full title" rel="SeeMore"><BiChevronDownCircle fontSize="2em"/></a></div>}
         {(article.title.length >= 25 && isSeeMore) && 
         <div className="top- card"><h3 className="title-article-card" onClick={handleOnClick}>{article.title}</h3>
-        <a className="seeMore" onClick={handleSeeMore}><BiChevronUpCircle fontSize="2em"/> </a></div>}
+        <a className="seeMore" onClick={handleSeeMore}
+         alt="See less" title="See less" rel="SeeLess"><BiChevronUpCircle fontSize="2em"/> </a></div>}
 
         </div>
-        <img onClick={handleOnClick} className="photo-article-card" src={article.article_img_url} tab="mini photo of article"/>
+        <img onClick={handleOnClick} className="photo-article-card" src={article.article_img_url} alt={"preview article "+article.title}
+        title={"Read article "+article.title} rel="Read"/>
         <div className="footer-article-card">
         <p className="footer-article-card">By {article.author} - {article.topic[0].toUpperCase()+ article.topic.slice(1)}</p>
         </div>
