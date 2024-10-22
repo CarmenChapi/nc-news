@@ -44,9 +44,9 @@ const SortBy = () => {
   }
 
     return <section className="sort-by">
-    <form className="sort-by" aria-label="select sort-by" label="select">
-    <label aria-label="orderBy"className="sorted-by-label"><h2>Order Articles by:</h2> </label>
-    <select aria-label="sortBy" className= "input-sortby" name="sorted_by" id="sorted_by" value={sortedBy} onChange={(e)=>handleInputOnChange(e)}>
+    <form className="sort-by" label="sort-by">
+    <h2>Order Articles by:</h2>
+    <select aria-label="sort-by" className= "input-sortby" name="sorted_by" id="sorted_by" value={sortedBy} onChange={(e)=>handleInputOnChange(e)}>
       {sortedByOptions.map((option, index) => {
         return (
           <option value={option} key={index} label={`${sortedByNames[index]}`}>

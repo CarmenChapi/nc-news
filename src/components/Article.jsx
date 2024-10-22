@@ -60,7 +60,7 @@ const Article = () => {
       {!error && (
         <section className="article-class">
           <h2>{articleData.title}</h2>
-          <img className="photoArticle" src={articleData.article_img_url} tab="article photograph" />
+          <img className="photoArticle" src={articleData.article_img_url} alt={"photo of the article"} />
           <p>By {articleData.author}</p>
           {articleData.votes !== 0 ? (
             articleData.votes === 1 ? (
