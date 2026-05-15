@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArticleById, patchArticleVotes } from "../utils/api";
 import ErrorPage from "./ErrorPage";
 import ListComments from "./ListComments";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 const Article = () => {
   //console.log(article);
@@ -72,12 +73,14 @@ const Article = () => {
             <></>
           )}
           <button className="like-comment" onClick={handleVotesArticle} aria-label="Like it">
-            ♥
+           {!isVoted ? <FaRegHeart /> : <FaHeart />} 
           </button>
           
           <p>{date}</p>
-          <p>
+          <p className="article-body">
+            <strong>
             {articleData.topic[0].toUpperCase() + articleData.topic.slice(1)}-{" "}
+            </strong>
             {articleData.body}
           </p>
           <ListComments article_id={article_id} />

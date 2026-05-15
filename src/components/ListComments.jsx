@@ -69,7 +69,7 @@ const ListComments = ({article_id}) => {
 
     return <section>
         <form label="comment-input">
-        <input value={newCommentValue} onChange={(e)=>handleInputOnChange(e)} placeholder="Leave comment" className="article-class input-comment" aria-label="Leave a comment"/><button onClick={handleSubmit}>Submit</button>
+        <input value={newCommentValue} onChange={(e)=>handleInputOnChange(e)} placeholder="Leave comment" className="article-class input-comment" aria-label="Leave a comment"/><button className="submit-button"        onClick={handleSubmit}>Submit</button>
         {isEmptyInputError ? <p className="error-input"> Text empty, write text before send comment</p> : <></>}
         </form>
         { isPostingComment ? <h2>...Posting comment</h2> : <></>}
