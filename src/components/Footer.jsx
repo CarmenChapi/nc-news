@@ -8,7 +8,7 @@ const Footer = () =>
     }
     return <section className="footer" role="contentinfo">
        
-         <button onClick={handleClic} className="login-button">Top &#8593;</button> 
+         <button onClick={handleClic} className="login-button">Top &#8593;</button>
          <a className="footer-link" href="https://northcoders.com"
          title="Northcoders website"><img className="logo"  loading="lazy" alt="Northcoders logo" src="/src/assets/NC-Logo.png"/></a>
        
