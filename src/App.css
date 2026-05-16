@@ -11,7 +11,7 @@
   text-align: center;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: #fdf0d5;
   padding: 0.5em;
 }
 
@@ -35,7 +35,7 @@
     width: 10px;
     height: 10px;
     position: absolute;
-    border: 0px solid white;
+    border: 0px solid #fdf0d5;
     transition: all 1s;
   }
   &:after {
@@ -62,17 +62,10 @@
 }
 
 .logo {
-  height: 2em;
-  width: 2em;
+  height: 3em;
   padding: 1em;
   text-align: center;
     background-color: #cc978e;
-}
-
-.user-avatar {
-  max-width: 6em;
-  max-height: 6em;
-  padding: 1em;
 }
 
 .h2 {
@@ -98,7 +91,7 @@
   border-radius: 4em;
   border-style: solid;
   border-width: medium;
-    background-color: #cc978e;
+  background-color: #cc978e;
   margin-bottom: 0px;
 }
 
@@ -110,14 +103,16 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  background-color: white;
 }
 .loading {
   text-align: center;
-  background-color: white;
+  background-color: #fdf0d5;
   color:  #261447;
     background-color: #669bbc;
   max-width: 100%;
+  height: 15em;
+  padding: 1em;
+  margin: 2em;
 }
 .login-button {
    background-color: #cc978e;
@@ -128,7 +123,6 @@
   padding: 0.5em;
 }
 .nav-button {
-  background-color: white;
   border-radius: 2em;
   border-style: solid;
   border-width: medium;
@@ -144,19 +138,17 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  background-color: white;
   border-radius: 3em;
 }
 .sorted-by-label {
-  background-color: white;
   text-align: center;
   border-radius: 1.5em;
 }
 .sort-by-input {
   text-decoration: bold;
+  background-color: #669bbc;
 }
 .menu {
-  background-color: white;
   border-radius: 3em;
 }
 
@@ -171,7 +163,7 @@
 }
 
 .button-article-card:hover {
-  background-color: #f39c6b;
+  background-color: #cc978e;;
 }
 
 .seeMore {
@@ -192,7 +184,7 @@
 }
 .article-card:hover {
   border-radius: 3em;
-  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px 5px #261447;;
 }
 .top-card {
   display: flex;
@@ -219,7 +211,7 @@
   flex-wrap: wrap;
   text-align: center;
   background-color: #fdf0d5;
-  color: black;
+  color: #261447;;
   border-radius: 3em;
   margin: 2em;
   padding: 4em;
@@ -249,7 +241,7 @@
   text-align: center;
   justify-content: space-around;
   align-items: center;
-  background-color: white;
+  background-color: #fdf0d5;
   border-radius: 3em;
   color: black;
 }
@@ -295,14 +287,14 @@
   margin: 1em;
 }
 .list-user-card:hover {
-  background: rgb(243, 247, 18);
+  background:#669bbc;
 }
 .like-comment:hover,
 .like-comment2:hover,
 .bin:hover {
   transform: translateY(-4px) scale(1.05);
   background-color: #cc978e;
-  color: white;
+  color: #fdf0d5;
   box-shadow: 0 8px 20px #261447;
 }
 
@@ -342,8 +334,8 @@
 }
 
 .error {
-  color: black;
-  background-color: white;
+  color: #261447;;
+    background-color: #fdf0d5;
   text-align: center;
   max-width: 100%;
   height: 20em;
@@ -359,12 +351,14 @@
 
 .footer {
   display: flex;
-  text-align: center;
   justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
   align-items: center;
-  background-color: white;
-  max-width: 95%;
-  padding: 1em;
+  background-color: #fdf0d5;
+  width: 100%;
+  padding: 2em;
+  box-sizing: border-box;
 }
 
 .article-body {
@@ -397,10 +391,6 @@
     width: 100%;
   }
 
-  .footer {
-    max-width: 100%;
-    flex-wrap: wrap;
-  }
 }
   .title {
     font-size: 20px;
@@ -423,11 +413,6 @@ h2{
 p{
   font-size: 14px;
 }
-.user-avatar {
-  max-width: 3em;
-  max-height: 3em;
-  padding: 1em;
-}
 .like-comment2,.bin {
   border-radius: 3em;
   width: 30px;
@@ -441,4 +426,10 @@ p{
   .topic-nav-bar {
   padding: 0.1em;
   }
+  .loading {
+  height: 7em;
+  padding: 0.5em;
+  margin: 1em;
+}
+
 }

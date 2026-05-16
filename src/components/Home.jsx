@@ -16,10 +16,13 @@ const Home= () => {
     const orderByQuery = searchParams.get("order");
     const authorByQuery = searchParams.get("author");
     const [error, setError] = useState(null)
+      // PAGINATION
+  const [currentPage, setCurrentPage] = useState(1);
+  const articlesPerPage = 6;
     
 
     useEffect(()=>{
-   
+      setCurrentPage(1);
         getArticles(topicByQuery,sortByQuery, orderByQuery).then((articles) => {
           if(authorByQuery){
             const array = articles.filter((art) => art.author===authorByQuery)
@@ -36,6 +39,17 @@ const Home= () => {
               setIsLoading(false)
             })
       },[topicByQuery, sortByQuery, orderByQuery, authorByQuery])
+ const lastArticleIndex = currentPage * articlesPerPage;
+  const firstArticleIndex = lastArticleIndex - articlesPerPage;
+
+  const currentArticles = listArticles.slice(
+    firstArticleIndex,
+    lastArticleIndex
+  );
+
+  const totalPages = Math.ceil(
+    listArticles.length / articlesPerPage
+  );
 
     
       if (isLoading) {
@@ -57,6 +71,8 @@ const Home= () => {
            return <li key={article.article_id}><ArticleCard article={article}/> </li>
             })}
     </ul> 
+    
+          
     </div></section>}
     </section>
     

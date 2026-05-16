@@ -27,7 +27,7 @@ const SortBy = () => {
     setIsDesc(false)
   }
   function handleDesc(event){
-    event.preventDefault()
+    event.preventDefault();
     setIsDesc(true)
   }
 
