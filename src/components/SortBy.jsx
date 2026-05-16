@@ -12,6 +12,7 @@ const SortBy = () => {
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const topicByQuery = searchParams.get("topic")
+  const backgroundColor = "#CC978E";
 
   let queryFinal =  location.pathname === '/articles' ?  "?" : '/articles?'
   if(topicByQuery){
@@ -26,7 +27,7 @@ const SortBy = () => {
     setIsDesc(false)
   }
   function handleDesc(event){
-    event.preventDefault()
+    event.preventDefault();
     setIsDesc(true)
   }
 
@@ -55,8 +56,8 @@ const SortBy = () => {
       })}
     </select>
    
-    <button  style={{ background: !isDesc ? "LightCoral" : "white" }} onClick={handleAsc}>Asc &#8593;</button>
-    <button  style={{ background: isDesc ? "LightCoral" : "white" }} onClick={handleDesc}>Desc &#8595;</button> 
+    <button  style={{ background: !isDesc ? backgroundColor : "white" }} onClick={handleAsc}>Asc &#8593;</button>
+    <button  style={{ background: isDesc ? backgroundColor : "white" }} onClick={handleDesc}>Desc &#8595;</button> 
     <button onClick={handleClick}>Go</button>
     
     </form>

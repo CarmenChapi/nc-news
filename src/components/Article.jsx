@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArticleById, patchArticleVotes } from "../utils/api";
 import ErrorPage from "./ErrorPage";
 import ListComments from "./ListComments";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 const Article = () => {
   //console.log(article);
@@ -54,13 +55,14 @@ const Article = () => {
     return <section><h1 className="loading">...Loading</h1></section>;
   }
   return (
-    <section >
+    <section>
+      <meta name="description" content={articleData.title}></meta>
       {error && <ErrorPage errorMsg={`404 Not Found`} />}
 
       {!error && (
         <section className="article-class">
           <h2>{articleData.title}</h2>
-          <img className="photoArticle" src={articleData.article_img_url} alt={"photo of the article"} />
+          <img className="photoArticle"  loading="lazy" src={articleData.article_img_url} alt={"photo of the article"} />
           <p>By {articleData.author}</p>
           {articleData.votes !== 0 ? (
             articleData.votes === 1 ? (
@@ -72,12 +74,14 @@ const Article = () => {
             <></>
           )}
           <button className="like-comment" onClick={handleVotesArticle} aria-label="Like it">
-            ♥
+           {!isVoted ? <FaRegHeart /> : <FaHeart />} 
           </button>
           
           <p>{date}</p>
-          <p>
+          <p className="article-body">
+            <strong>
             {articleData.topic[0].toUpperCase() + articleData.topic.slice(1)}-{" "}
+            </strong>
             {articleData.body}
           </p>
           <ListComments article_id={article_id} />

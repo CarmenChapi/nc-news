@@ -33,7 +33,7 @@ const ArticleCard = ({article}) => {
          alt="See less" title="See less" rel="SeeLess"><BiChevronUpCircle fontSize="2em"/> </a></div>}
 
         </div>
-        <img onClick={handleOnClick} className="photo-article-card" src={article.article_img_url} alt={"preview article "+article.title}
+        <img onClick={handleOnClick}  loading="lazy" className="photo-article-card" src={article.article_img_url} alt={"preview article "+article.title}
         title={"Read article "+article.title} rel="Read"/>
         <div className="footer-article-card">
         <p className="footer-article-card">By {article.author} - {article.topic[0].toUpperCase()+ article.topic.slice(1)}</p>

@@ -62,6 +62,7 @@ const Users = ({error}) => {
     return <section className="user">
         <form className='form-user'>
         {error && <p>{error}</p>}
+        <meta name="description" content="Log in to your account"></meta>
         <h2>Enter a valid username to log in</h2>
         <input value={userForm} type="text" aria-label="Username" onChange={(e)=>handleInputOnChange(e)} placeholder="Insert a valid username" className="input-user"/><button onClick={handleSubmit}>Log In</button>
         {isEmptyInput ? <p className="error-input"> It is empty</p> : <></>}
