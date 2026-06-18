@@ -53,13 +53,12 @@ Backend version requirements:
 - View the current username
 - Log out and choose another user
 - Return to the home page by clicking the NC News logo
-- Use pagination, with the current page saved in the URL
+- Use pagination
 
 ## Tech Stack
 
 - React
 - Vite
-- React Router
 - Axios
 - CSS
 - Netlify
