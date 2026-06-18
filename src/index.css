@@ -8,11 +8,11 @@
 }
 
 a {
-  color:black;
+  color: var(--color-primary-dark, #17324d);
   text-decoration: inherit;
 }
 a:hover {
-  color: black
+  color: var(--color-action-strong, #d95d39);
 }
 
 body {
@@ -29,21 +29,22 @@ h1 {
 
 button {
   border-radius: 8px;
-  border: 2px solid;
+  border: 2px solid var(--color-primary-dark, #17324d);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
+  color: var(--color-primary-dark, #17324d);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
 
 
 }
 button:hover {
-  border-color: wheat;
+  border-color: var(--color-action, #e07a5f);
+  box-shadow: 0 6px 16px var(--color-shadow, rgba(23, 50, 77, 0.25));
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-

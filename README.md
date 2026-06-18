@@ -1,38 +1,142 @@
-# nc-news
-## Link to the deployed version
--  https://ncnewscarmenchapi.netlify.app
+# NC News
 
-## Project nc-news description:
-#### Northcoders News is a social news aggregation, web content rating and discussion website. 
-#### Northcoders News has articles which are divided into topics, and each article has user-curated ratings from upvotes and downvotes using the API. Users can also add comments about an article.
+NC News is a React news application where users can browse articles, filter by topic, sort results, vote on articles and comments, and post or delete comments.
 
-## How to use nc-news
-- as a user,  I can see all the articles 
-- as a user, I can filter all the articles by the topic and I can see filter to see only my articles
-- as a user, I can see my username
-- as a user, I can log out
-- as a user, I can pick a user to log in in a user list
-- as a user, I can sort the articles by date, number of comments and votes
-- as a user, I can click any article and see all the information about it and the comments related 
-- as a user, I can vote for an article
-- as a user, I can leave a comment or delete
-- as a user, I can vote for a comment
-- as a user, I can go to the home page click in in the logo
-- as a user, I can change log out the user by default, and pick another user
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/).
 
-## BE api repo
-- https://github.com/CarmenChapi/NewsCarmen.git
-- https://newscarmen.onrender.com/api/
+## Deployed Version
 
-## Node version required
-v22.4.0
+https://ncnewscarmenchapi.netlify.app
 
-## How to run the project locally
-- git clone https://github.com/CarmenChapi/nc-news.git
-- git cd cd nc-news 
-- git code .
-- npm install
-- npm run dev 
-- open the link a browser
+## Backend API
 
-#### This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)
+- API repo: https://github.com/CarmenChapi/NewsCarmen.git
+- Hosted API: https://newscarmen.onrender.com/api/
+
+This frontend uses a custom Northcoders News API built for the backend part of the project. The API provides the article, topic, user, vote, and comment data used by the React application.
+
+The backend was built to mimic a real-world news service, allowing the frontend to request data programmatically and update resources such as article votes and comments.
+
+Main API endpoints used by this app:
+
+- `GET /api/topics` - returns all available article topics
+- `GET /api/articles` - returns a list of articles
+- `GET /api/articles?topic=:topic` - filters articles by topic
+- `GET /api/articles?sort_by=:sort_by&order=:order` - sorts articles by date, votes, or comment count
+- `GET /api/articles/:article_id` - returns a single article
+- `PATCH /api/articles/:article_id` - updates article votes
+- `GET /api/articles/:article_id/comments` - returns comments for an article
+- `POST /api/articles/:article_id/comments` - posts a new comment
+- `DELETE /api/comments/:comment_id` - deletes a comment
+- `PATCH /api/comments/:comment_id` - updates comment votes
+- `GET /api/users` - returns all users
+
+The backend project was built with Node.js, Express, and PostgreSQL. It also uses Jest and Supertest for testing, plus Husky, and Dotenv.
+
+Backend version requirements:
+
+- Node.js `v22.4.0`
+- PostgreSQL `v16.4`
+
+## Features
+
+- View a list of articles
+- Filter articles by topic
+- View articles posted by the logged-in user
+- Sort articles by date, number of comments, and votes
+- Open an article to view its full content and related comments
+- Vote on articles
+- Post comments on articles
+- Delete comments
+- Vote on comments
+- Select a user from the users list
+- View the current username
+- Log out and choose another user
+- Return to the home page by clicking the NC News logo
+- Use pagination, with the current page saved in the URL
+
+## Tech Stack
+
+- React
+- Vite
+- React Router
+- Axios
+- CSS
+- Netlify
+- Render
+
+## Node Version Required
+
+This project was built using Node.js `v22.4.0`.
+
+Please use this version or newer.
+
+## How To Run The Project Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/CarmenChapi/nc-news.git
+```
+
+Move into the project folder:
+
+```bash
+cd nc-news
+```
+
+Open the project in VS Code:
+
+```bash
+code .
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open the local URL shown in the terminal.
+
+## Available Scripts
+
+```bash
+npm run dev
+```
+
+Starts the development server.
+
+```bash
+npm run build
+```
+
+Builds the project for production.
+
+```bash
+npm run preview
+```
+
+Previews the production build locally.
+
+```bash
+npm run lint
+```
+
+Runs ESLint checks.
+
+## Environment Variables
+
+No environment variables are required to run this frontend project locally.
+
+The app uses the hosted backend API at:
+
+```txt
+https://newscarmen.onrender.com/api/
+```

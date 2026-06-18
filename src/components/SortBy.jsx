@@ -2,22 +2,16 @@ const sortedByOptions = ["votes", "created_at", "comment_count"]
 const sortedByNames = ["Likes", "Date", "Number of comments"]
 
 import { useState } from "react"
-import { useNavigate, useLocation} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 
 const SortBy = () => {
   const navigate = useNavigate();
   const [sortedBy, setSortedBy] = useState("")
   const [isDesc, setIsDesc] = useState(true)//Defaul OrdersBy created_at DESC when empty
-  const location = useLocation();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const topicByQuery = searchParams.get("topic")
-  const backgroundColor = "#CC978E";
+  const [searchParams] = useSearchParams();
+  const backgroundColor = "var(--color-action)";
 
-  let queryFinal =  location.pathname === '/articles' ?  "?" : '/articles?'
-  if(topicByQuery){
-    queryFinal += 'topic=' + topicByQuery + '&'
-  }
   function handleInputOnChange(e) {
     e.preventDefault()
     setSortedBy(e.target.value);    
@@ -33,15 +27,23 @@ const SortBy = () => {
 
   function handleClick(event){
     event.preventDefault()
+    const newSearchParams = new URLSearchParams(searchParams);
+
     if(sortedBy){
-      queryFinal += `sort_by=${sortedBy}`
+      newSearchParams.set("sort_by", sortedBy);
+    } else {
+      newSearchParams.delete("sort_by");
     }
     if(!isDesc){
-        queryFinal += sortedBy ? '&order=asc' : '?order=asc'
-      }
+      newSearchParams.set("order", "asc");
+    } else {
+      newSearchParams.delete("order");
+    }
+
+    newSearchParams.delete("page");
+    const queryString = newSearchParams.toString();
     
-    //console.log(queryFinal)
-    navigate(queryFinal);
+    navigate(queryString ? `/articles?${queryString}` : "/articles");
   }
 
     return <section className="sort-by">
@@ -56,8 +58,8 @@ const SortBy = () => {
       })}
     </select>
    
-    <button  style={{ background: !isDesc ? backgroundColor : "white" }} onClick={handleAsc}>Asc &#8593;</button>
-    <button  style={{ background: isDesc ? backgroundColor : "white" }} onClick={handleDesc}>Desc &#8595;</button> 
+    <button  style={{ background: !isDesc ? backgroundColor : "var(--color-surface)" }} onClick={handleAsc}>Asc &#8593;</button>
+    <button  style={{ background: isDesc ? backgroundColor : "var(--color-surface)" }} onClick={handleDesc}>Desc &#8595;</button> 
     <button onClick={handleClick}>Go</button>
     
     </form>
