@@ -16,7 +16,6 @@ const Header = () => {
         <Link to="/" className="head">
         <div className="title" ><h1 className="nc-news">NC NEWS</h1></div>
         </Link>
-        {/* <h2>{Date().split('G')[0].slice(0,-4)}         </h2> */}
         <MiniUser/> </div>}
         
     </section>

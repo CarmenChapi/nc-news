@@ -75,11 +75,9 @@ const Home= () => {
       if (isLoading) {
         return <div><h1 className="loading">...Loading</h1></div>
       }
-      // 2. Lógica matemática para cortar el array
   const indexOfLastArticle = safeCurrentPage * articlesPerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
   
-  // Estos son los 6 artículos que se renderizarán en la página actual
   const currentArticles = listArticles.slice(indexOfFirstArticle, indexOfLastArticle);
     return <section className="listArticles-card">
       {(error && topicByQuery) && <ErrorPage errorMsg={`Wrong value for topic=${topicByQuery}`}/> }

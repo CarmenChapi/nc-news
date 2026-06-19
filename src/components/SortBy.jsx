@@ -8,7 +8,7 @@ import { useSearchParams } from "react-router-dom";
 const SortBy = () => {
   const navigate = useNavigate();
   const [sortedBy, setSortedBy] = useState("")
-  const [isDesc, setIsDesc] = useState(true)//Defaul OrdersBy created_at DESC when empty
+  const [isDesc, setIsDesc] = useState(true)
   const [searchParams] = useSearchParams();
   const backgroundColor = "var(--color-action)";
 

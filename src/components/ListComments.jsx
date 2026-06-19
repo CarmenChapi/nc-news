@@ -7,7 +7,7 @@ import { UserContext } from "../context/UserContext";
 
 const ListComments = ({article_id}) => {
     const { user, setUser } = useContext(UserContext);
-    const username = user.username//'grumpy19';
+    const username = user.username
     const [isLoading, setIsLoading] = useState(true)
     const [isPostingComment, setIsPostingComment] = useState(false)
     const [listComments, setListComments] = useState([])

@@ -6,8 +6,6 @@ import ListComments from "./ListComments";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 const Article = () => {
-  //console.log(article);
-
   const [isLoading, setIsLoading] = useState(true);
   const [articleData, setArticleData] = useState({});
   const { article_id } = useParams();

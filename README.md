@@ -31,7 +31,7 @@ Main API endpoints used by this app:
 - `PATCH /api/comments/:comment_id` - updates comment votes
 - `GET /api/users` - returns all users
 
-The backend project was built with Node.js, Express, and PostgreSQL. It also uses Jest and Supertest for testing, plus Husky, and Dotenv.
+The backend project was built with Node.js, Express, and PostgreSQL. It also uses Jest and Supertest for testing, plus Husky, and Dotenv. Hosted in Render
 
 Backend version requirements:
 
@@ -58,11 +58,11 @@ Backend version requirements:
 ## Tech Stack
 
 - React
+- Javascrip
 - Vite
 - Axios
 - CSS
 - Netlify
-- Render
 
 ## Node Version Required
 
@@ -104,38 +104,7 @@ npm run dev
 
 Then open the local URL shown in the terminal.
 
-## Available Scripts
-
-```bash
-npm run dev
-```
-
-Starts the development server.
-
-```bash
-npm run build
-```
-
-Builds the project for production.
-
-```bash
-npm run preview
-```
-
-Previews the production build locally.
-
-```bash
-npm run lint
-```
-
-Runs ESLint checks.
 
 ## Environment Variables
 
 No environment variables are required to run this frontend project locally.
-
-The app uses the hosted backend API at:
-
-```txt
-https://newscarmen.onrender.com/api/
-```

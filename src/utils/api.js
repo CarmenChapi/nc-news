@@ -19,7 +19,6 @@ export const getArticles = (topicQuery, orderByQuery, dirOrderQuery) => {
         queryFinal += isQuery ? '&' : '?'
         queryFinal += `order=${dirOrderQuery}`
     }
-    //console.log('Api getArticles:', queryFinal)
     return ncNews.get(queryFinal).then(({data}) =>{
         return data.articles;
     })
@@ -28,9 +27,6 @@ export const getArticles = (topicQuery, orderByQuery, dirOrderQuery) => {
 export const getArticleById = (id) => {
     return ncNews.get(`/articles/${id}`).then(({data}) =>{
         return data.article;
-    // }).catch(err =>{
-    //     console.log(err)
-       // return err;
     })
 }
 
