@@ -56,17 +56,13 @@ Backend version requirements:
 - Use pagination
 
 ## Tech Stack
-
-- React
-- Javascrip
-- Vite
-- Axios
-- CSS
-- Netlify
+![alt text](image.png)
+- Front End :  React, Vite, Axios
+- Back End : Node.js, Express, PostgreSQL, Jest
 
 ## Node Version Required
 
-This project was built using Node.js `v22.4.0`.
+This project was built using Node.js `v18.4.0`.
 
 Please use this version or newer.
 
@@ -108,3 +104,21 @@ Then open the local URL shown in the terminal.
 ## Environment Variables
 
 No environment variables are required to run this frontend project locally.
+
+## Demo
+
+#### In the main page an user can:
+- Browse articles by topic (coding, football, cooking, user)
+- Sort by date, votes, or comment count
+[![Demo](src/demo/thumbnail1.png)](src/demo/NewsDemo1.mp4)
+
+
+#### If the user open 1 article to see on detail: 
+- Reed the whole article 
+- Vote on articles and comments
+- Post and delete comments
+[![Demo](src/demo/thumbnail2.png)](src/demo/NewsDemo2.mp4)
+
+
+#### Responsive design for mobile and desktop
+[![Demo](src/demo/thumbnail3.png)](src/demo/NewsDemo3.mp4)
