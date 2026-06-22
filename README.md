@@ -108,17 +108,18 @@ No environment variables are required to run this frontend project locally.
 ## Demo
 
 #### In the main page an user can:
+- Display all the articles
 - Browse articles by topic (coding, football, cooking, user)
 - Sort by date, votes, or comment count
-[![Demo](src/demo/thumbnail1.png)](src/demo/NewsDemo1.mp4)
+[![Demo](src/demo/thumbnail1.png)](https://youtu.be/wejC-xPIY7g)
 
 
 #### If the user open 1 article to see on detail: 
 - Reed the whole article 
 - Vote on articles and comments
 - Post and delete comments
-[![Demo](src/demo/thumbnail2.png)](src/demo/NewsDemo2.mp4)
+[![Demo](src/demo/thumbnail2.png)](https://youtu.be/OQo3n9AaJSs)
 
 
 #### Responsive design for mobile and desktop
-[![Demo](src/demo/thumbnail3.png)](src/demo/NewsDemo3.mp4)
+[![Demo](src/demo/thumbnail3.png)](https://youtu.be/a5SHwSH1TdQ)
